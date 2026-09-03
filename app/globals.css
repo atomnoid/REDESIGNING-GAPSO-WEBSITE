@@ -3,8 +3,6 @@
 @theme inline {
   --color-background: var(--paper);
   --color-foreground: var(--ink);
-  --color-card: var(--paper-card);
-  --color-card-foreground: var(--ink);
   --color-primary: var(--signal);
   --color-primary-foreground: #FFFFFF;
   --color-border: var(--line);
@@ -15,64 +13,40 @@
 }
 
 :root {
-  /* Exact GAPSO Brand Theme */
-  --paper: #F6F4EE;
-  --paper-subtle: #F0EDE5;
-  --paper-card: #ECE8DD;
-  --paper-card-hover: #E6E1D3;
-  --white: #FFFFFF;
-
-  /* Ink */
-  --ink: #121312;
-  --ink-secondary: #2C2E2C;
-  --muted: #6C6D67;
-  --muted-light: #9B9C94;
-
-  /* Lines */
-  --line: #D8D5CA;
-  --line-subtle: #E5E2D8;
-  --line-strong: #BCB8AC;
-  --line-dark: #2B2D2B;
-
-  /* Accent Signal Terracotta */
-  --signal: #E44B27;
-  --signal-hover: #CC3D1A;
-  --signal-dim: rgba(228, 75, 39, 0.08);
-
-  /* Obsidian Contrast */
-  --dark: #121312;
-  --dark-surface: #181A18;
-  --dark-card: #1E201E;
-
-  color-scheme: light;
+  --paper:     #F6F4EE;
+  --ink:       #111210;
+  --muted:     #6B6C65;
+  --line:      #D6D3C8;
+  --line-dark: #252724;
+  --signal:    #E44B27;
+  --signal-h:  #CC3D1A;
+  --dark:      #111210;
+  --dark-mid:  #191B19;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--paper);
+  background: var(--paper);
   color: var(--ink);
 }
 
 body {
   margin: 0;
-  background-color: var(--paper);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.18s ease, opacity 0.18s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 
 button {
@@ -83,191 +57,52 @@ button {
   cursor: pointer;
 }
 
-/* ─── Section Label ─── */
-.section-label {
+/* Eyebrow label */
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+/* Primary Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
   font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--signal);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--signal-h); }
+
+/* Ghost text link */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
-  display: block;
-}
-
-/* ─── Primary CTA Button ─── */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--signal);
-  color: #ffffff !important;
-  padding: 0.8rem 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--signal);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-primary:hover {
-  background-color: var(--signal-hover);
-  border-color: var(--signal-hover);
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-.btn-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--ink);
-  color: #ffffff !important;
-  padding: 0.8rem 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--ink);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-
-.btn-dark:hover {
-  background-color: #000000;
-  border-color: #000000;
-  transform: translateY(-1px);
-}
-
-/* ─── Outline Button ─── */
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: transparent;
   color: var(--ink);
-  padding: 0.8rem 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--line-strong);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-outline:hover {
-  border-color: var(--ink);
-  color: var(--ink);
-}
-
-/* ─── Dark Inverted CTA (for colored/dark backgrounds) ─── */
-.btn-cta-invert {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--ink);
-  color: #ffffff !important;
-  padding: 0.8rem 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--ink);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn-cta-invert:hover {
-  background-color: #ffffff;
-  color: var(--ink) !important;
-  border-color: #ffffff;
-}
-
-.btn-cta-invert:hover * {
-  color: var(--ink) !important;
-}
-
-/* ─── Ghost Link (secondary actions, VIEW TRACK style) ─── */
-.link-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid currentColor;
   padding-bottom: 1px;
-  transition: color 0.18s ease, border-color 0.18s ease;
-  cursor: pointer;
-  background: none;
+  transition: color 0.15s ease;
 }
+.link:hover { color: var(--signal); }
 
-.link-ghost:hover {
-  color: var(--ink);
-  border-color: var(--ink);
+.link-dark {
+  color: #C8C5BA;
+  border-bottom-color: #C8C5BA;
 }
-
-.link-ghost-dark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #6B6B69;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
-  transition: color 0.18s ease, border-color 0.18s ease;
-  cursor: pointer;
-  background: none;
-}
-
-.link-ghost-dark:hover {
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.4);
-}
-
-/* ─── Scrollbar ─── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--white);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--line-strong);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
-}
-
-/* ─── Reduced Motion ─── */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+.link-dark:hover { color: #fff; border-bottom-color: #fff; }

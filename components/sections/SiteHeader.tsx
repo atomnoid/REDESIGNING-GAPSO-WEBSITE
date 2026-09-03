@@ -1,120 +1,69 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowUpRight } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
-interface SiteHeaderProps {
-  applyHref: string
-}
+const navLinks = [
+  { label: 'Programs', href: '#programs' },
+  { label: 'How It Works', href: '#why' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Who It\'s For', href: '#audience' },
+  { label: 'Community', href: '#community' },
+]
 
-export function SiteHeader({ applyHref }: SiteHeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export function SiteHeader({ applyHref }: { applyHref: string }) {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const navLinks = [
-    { label: 'Programs', href: '#programs' },
-    { label: 'Why GAPSO', href: '#why' },
-    { label: 'Learning', href: '#learning' },
-    { label: 'Community', href: '#community' },
-    { label: 'Blog', href: '#blog' },
-  ]
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-          isScrolled
-            ? 'bg-[#F6F4EE]/95 backdrop-blur-md border-b border-[#D8D5CA] py-3.5'
-            : 'bg-[#F6F4EE] border-b border-[#D8D5CA] py-4'
-        }`}
-      >
+      <header className={`sticky top-0 z-50 w-full border-b border-[#D6D3C8] transition-all ${scrolled ? 'bg-[#F6F4EE]/95 backdrop-blur-md py-3.5' : 'bg-[#F6F4EE] py-4'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Wordmark */}
-          <a
-            href="#top"
-            className="group flex items-baseline gap-2 font-mono text-xs tracking-wider"
-          >
-            <span className="font-serif text-xl tracking-tight text-[#121312] group-hover:text-[#E44B27] transition-colors">
-              GAPSO
-            </span>
-            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#6C6D67] uppercase">
-              SCHOOL OF AI
-            </span>
+          <a href="#top" className="flex items-baseline gap-2 group">
+            <span className="font-serif text-xl text-[#111210] group-hover:text-[#E44B27] transition-colors">GAPSO</span>
+            <span className="font-mono text-[9px] text-[#6B6C65] uppercase tracking-widest">School of AI</span>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#2C2E2C]">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="hover:text-[#E44B27] transition-colors"
-              >
-                {link.label}
-              </a>
+          <nav className="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#111210]">
+            {navLinks.map((l) => (
+              <a key={l.label} href={l.href} className="hover:text-[#E44B27] transition-colors">{l.label}</a>
             ))}
           </nav>
 
-          {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <a
-              href={applyHref}
-              className="hidden sm:inline-flex btn-primary text-[11px] py-2 px-4"
-            >
-              <span>Apply Now</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-[#0D0D0C] hover:text-[#E44B27] transition-colors"
-              aria-label="Toggle navigation"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <a href={applyHref} className="hidden sm:inline-flex btn text-xs">Apply Now</a>
+            <button onClick={() => setOpen(!open)} className="md:hidden" aria-label="Toggle navigation">
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-x-0 top-[60px] z-40 bg-[#F6F4EE] border-b border-[#D8D5CA] shadow-lg md:hidden px-6 py-6"
+            className="fixed inset-x-0 top-[57px] z-40 bg-[#F6F4EE] border-b border-[#D6D3C8] px-6 py-6 md:hidden"
           >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium py-2 border-b border-[#D8D5CA] text-[#121312] hover:text-[#E44B27] flex items-center justify-between"
-                >
-                  <span>{link.label}</span>
-                  <span className="text-xs font-mono text-[#9B9C94]">↗</span>
+            <div className="flex flex-col gap-1">
+              {navLinks.map((l) => (
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)}
+                  className="py-3 border-b border-[#D6D3C8] text-base font-medium text-[#111210] hover:text-[#E44B27] flex items-center justify-between transition-colors">
+                  {l.label}
+                  <span className="font-mono text-xs text-[#6B6C65]">↗</span>
                 </a>
               ))}
-              <a
-                href={applyHref}
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-primary mt-3 text-center w-full justify-center"
-              >
-                <span>Apply Now</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
+              <a href={applyHref} className="mt-4 btn justify-center">Apply Now</a>
             </div>
           </motion.div>
         )}

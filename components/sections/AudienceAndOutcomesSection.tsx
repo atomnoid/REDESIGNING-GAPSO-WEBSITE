@@ -4,101 +4,49 @@ import React from 'react'
 
 export function AudienceAndOutcomesSection() {
   const audiences = [
-    {
-      no: '01',
-      title: 'School Students',
-      cohort: '11th · 12th',
-      desc: 'Start before the field feels intimidating. Understanding early changes what you choose next.',
-      entry: 'AI FUNDAMENTALS',
-    },
-    {
-      no: '02',
-      title: 'College Students',
-      cohort: 'Diploma · BCA · BSc · BE · BTech · MCA',
-      desc: 'Turn a degree into demonstrable ability, with projects you can actually walk someone through.',
-      entry: 'AI FUNDAMENTALS → AI DEVELOPER FOUNDATIONS',
-    },
-    {
-      no: '03',
-      title: 'Working Professionals',
-      cohort: 'Developers · Managers · HR · Marketing · Sales · Business owners · Teachers · Career switchers',
-      desc: 'Add AI to the work you already do — or move toward building the systems themselves.',
-      entry: 'AI PROFESSIONAL → AI SYSTEMS ENGINEERING',
-    },
-    {
-      no: '04',
-      title: 'Business Owners & Entrepreneurs',
-      cohort: 'Founders · CEOs · Directors',
-      desc: 'Learn to build workflows and AI pipelines that save thousands of hours across your team.',
-      entry: 'AI PROFESSIONAL',
-    },
+    { no: '01', title: 'Professionals Outside IT', cohort: 'Working Adults', desc: 'Decision-makers, managers and operators who work with documents, data and deadlines. The objective is leverage — becoming the person who can make AI produce reliable, repeatable output.', entry: 'AI Professional Track' },
+    { no: '02', title: 'College & Senior School Students', cohort: 'Students', desc: 'Students who intend to build. This track installs the engineering fundamentals that every AI role — however senior — is eventually built on top of.', entry: 'AI Developer Foundations' },
+    { no: '03', title: 'Working IT Professionals', cohort: 'Engineers', desc: 'Engineers who can already code and now need the architecture — retrieval, memory, tool use and multi-agent coordination in a system that survives production traffic.', entry: 'AI Engineering Program' },
+    { no: '04', title: 'Not Sure Yet', cohort: 'Anyone', desc: 'Start with AI Fundamentals, which is free and has no prerequisites. Everything else routes from there once you know where you are.', entry: 'AI Fundamentals (Free)' },
   ]
 
   const outcomes = [
-    { text: 'Understand how modern AI systems work', stages: '1, 2, 3, 4' },
-    { text: 'Judge where AI helps — and where it doesn’t', stages: '1, 2, 3, 4' },
-    { text: 'Use AI deliberately in professional work', stages: '2, 3, 4' },
-    { text: 'Write code that calls and controls AI APIs', stages: '2, 3, 4' },
-    { text: 'Build applications powered by LLMs', stages: '3, 4' },
-    { text: 'Build retrieval-based systems over your own data', stages: '3, 4' },
-    { text: 'Reason about agents, tools and multi-step workflows', stages: '3, 4' },
-    { text: 'Understand what production AI actually requires', stages: '4' },
-    { text: 'Ship projects you can explain line by line', stages: '4' },
+    { text: 'Explain how a large language model generates a response', stages: '1' },
+    { text: 'Build a prompt that produces consistent, reliable output', stages: '1–2' },
+    { text: 'Automate a real workflow using an AI API', stages: '2' },
+    { text: 'Write and deploy code that calls a model', stages: '3' },
+    { text: 'Build a retrieval-augmented generation system from scratch', stages: '4' },
+    { text: 'Design a multi-agent system with memory and tool use', stages: '4' },
+    { text: 'Review, debug and explain someone else\'s AI system', stages: '3–4' },
   ]
 
   return (
     <>
-      {/* Audience Section */}
-      <section id="audience" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
+      <section id="audience" className="py-24 md:py-32 border-b border-[#D6D3C8]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          {/* Section Head */}
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-              <span className="section-label text-[#E44B27]">
-                WHO IT&apos;S FOR
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
-              Four ways in. The same path forward.
-            </h2>
-            <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
-              Start where you are. What differs is the entry point, not what you&apos;re working toward.
-            </p>
-          </div>
+          <p className="label mb-6">Who It&apos;s For</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#111210] leading-[1.05] mb-4 max-w-3xl">
+            Four ways in. The same path forward.
+          </h2>
+          <p className="text-base sm:text-lg text-[#6B6C65] mb-16 max-w-2xl">
+            Start where you are. What differs is the entry point, not what you&apos;re working toward.
+          </p>
 
-          {/* 4 Audience Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#D8D5CA] divide-y sm:divide-y-0 sm:divide-x divide-[#D8D5CA]">
-            {audiences.map((aud) => (
-              <div
-                key={aud.no}
-                className="p-8 flex flex-col justify-between hover:bg-[#ECE8DD]/40 transition-colors"
-              >
-                <div>
-                  <span className="font-mono text-xs font-bold text-[#E44B27] block mb-6">
-                    {aud.no}
-                  </span>
-
-                  <h3 className="text-2xl font-serif text-[#121312] mb-2">
-                    {aud.title}
-                  </h3>
-
-                  <div className="font-mono text-[10px] font-semibold text-[#6C6D67] tracking-wider uppercase block mb-4">
-                    {aud.cohort}
-                  </div>
-
-                  <p className="text-sm text-[#6C6D67] font-normal leading-relaxed mb-6">
-                    {aud.desc}
-                  </p>
+          <div className="divide-y divide-[#D6D3C8] border-t border-[#D6D3C8]">
+            {audiences.map((a) => (
+              <div key={a.no} className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                <div className="lg:col-span-1">
+                  <span className="font-mono text-xs font-bold text-[#E44B27]">{a.no}</span>
                 </div>
-
-                <div className="pt-6 border-t border-[#D8D5CA] mt-4">
-                  <small className="font-mono text-[9px] text-[#9B9C94] tracking-widest uppercase block mb-1">
-                    TYPICAL ENTRY
-                  </small>
-                  <strong className="font-mono text-xs text-[#E44B27] font-semibold block tracking-tight">
-                    {aud.entry}
-                  </strong>
+                <div className="lg:col-span-4">
+                  <p className="font-mono text-[10px] font-semibold text-[#6B6C65] uppercase tracking-wider mb-1">{a.cohort}</p>
+                  <h3 className="text-2xl sm:text-3xl font-serif text-[#111210]">{a.title}</h3>
+                </div>
+                <div className="lg:col-span-5">
+                  <p className="text-sm text-[#6B6C65] leading-relaxed">{a.desc}</p>
+                </div>
+                <div className="lg:col-span-2">
+                  <p className="font-mono text-[10px] text-[#E44B27] font-bold tracking-wider">{a.entry}</p>
                 </div>
               </div>
             ))}
@@ -106,44 +54,24 @@ export function AudienceAndOutcomesSection() {
         </div>
       </section>
 
-      {/* Outcomes Section */}
-      <section id="outcomes" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
+      <section id="outcomes" className="py-24 md:py-32 border-b border-[#D6D3C8]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          {/* Section Head */}
-          <div className="max-w-3xl mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-              <span className="section-label text-[#E44B27]">
-                OUTCOMES
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
-              What you&apos;ll actually be able to do.
-            </h2>
-            <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
-              Capabilities, not promises — and the stage each one is developed in.
-            </p>
-          </div>
+          <p className="label mb-6">Outcomes</p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#111210] leading-[1.05] mb-4 max-w-3xl">
+            What you&apos;ll actually be able to do.
+          </h2>
+          <p className="text-base sm:text-lg text-[#6B6C65] mb-16 max-w-2xl">
+            Capabilities, not promises.
+          </p>
 
-          {/* Outcomes Matrix */}
-          <div className="max-w-4xl border-t border-[#D8D5CA] divide-y divide-[#D8D5CA]">
-            {outcomes.map((item, idx) => (
-              <div
-                key={item.text}
-                className="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 hover:bg-[#ECE8DD]/40 px-3 -mx-3 transition-colors"
-              >
+          <div className="max-w-4xl divide-y divide-[#D6D3C8] border-t border-[#D6D3C8]">
+            {outcomes.map((o, i) => (
+              <div key={o.text} className="py-5 flex items-baseline justify-between gap-6">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs font-bold text-[#E44B27]">
-                    0{idx + 1}
-                  </span>
-                  <p className="text-base sm:text-lg text-[#121312] font-normal">
-                    {item.text}
-                  </p>
+                  <span className="font-mono text-xs font-bold text-[#E44B27] shrink-0">0{i + 1}</span>
+                  <p className="text-base sm:text-lg text-[#111210]">{o.text}</p>
                 </div>
-
-                <small className="font-mono text-[11px] text-[#6C6D67] whitespace-nowrap pl-8 sm:pl-0">
-                  — developed in stage {item.stages}
-                </small>
+                <span className="font-mono text-[10px] text-[#6B6C65] shrink-0">Stage {o.stages}</span>
               </div>
             ))}
           </div>

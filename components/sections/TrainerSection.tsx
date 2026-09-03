@@ -3,109 +3,65 @@
 import React from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
-interface TrainerSectionProps {
-  imageUrl: string
-}
+interface Props { imageUrl: string }
 
-export function TrainerSection({ imageUrl }: TrainerSectionProps) {
+export function TrainerSection({ imageUrl }: Props) {
   const stats = [
-    { value: '2,000+', label: 'LEARNERS TAUGHT' },
-    { value: '2021', label: 'IN INDUSTRY SINCE' },
-    { value: '03', label: 'SPECIALIST TRACKS' },
+    { value: '2,000+', label: 'Students & Professionals Taught' },
+    { value: '5 yrs', label: 'Building & Shipping Software' },
+    { value: '100%', label: 'Live Sessions — No Pre-recorded' },
   ]
-
-  const socialLinks = [
-    { label: 'LinkedIn', href: '#community' },
-    { label: 'GitHub', href: '#community' },
-    { label: 'Instagram', href: '#community' },
-    { label: 'Email', href: '#community' },
+  const links = [
+    { label: 'LinkedIn', href: 'https://linkedin.com' },
+    { label: 'GitHub', href: 'https://github.com' },
+    { label: 'YouTube', href: 'https://youtube.com' },
   ]
 
   return (
-    <section id="why" className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
+    <section className="py-24 md:py-32 bg-[#111210] text-[#F6F4EE] border-b border-[#252724]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Portrait */}
-          <div className="lg:col-span-5">
-            <div className="max-w-md mx-auto lg:max-w-none">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#181A18] border border-[#2B2D2B]">
-                <img
-                  src={imageUrl}
-                  alt="Gowrish H B"
-                  className="w-full h-full object-cover object-center grayscale contrast-105"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
 
-              <div className="mt-4 flex items-center justify-between font-mono text-[10px] text-[#9B9C94] tracking-widest uppercase">
-                <span>THE TRAINER / 2026</span>
-                <span className="text-[#E44B27]">LIVE IN-PERSON &amp; ONLINE</span>
-              </div>
+          {/* Portrait */}
+          <div className="lg:col-span-4">
+            <div className="aspect-[4/5] overflow-hidden bg-[#191B19]">
+              <img src={imageUrl} alt="Gowrish H B" className="w-full h-full object-cover grayscale" />
             </div>
+            <p className="mt-3 font-mono text-[10px] text-[#8B8C84] tracking-widest uppercase">
+              Gowrish H B · Bengaluru, 2026
+            </p>
           </div>
 
-          {/* Right Column: Narrative & Stats */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-              <span className="section-label text-[#E44B27]">
-                THE TRAINER
-              </span>
+          {/* Text */}
+          <div className="lg:col-span-8">
+            <p className="label mb-5">The Trainer</p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-none mb-1">Gowrish H B</h2>
+            <p className="font-mono text-xs text-[#E44B27] tracking-wider uppercase mb-10">Founder &amp; Chief Executive Officer</p>
+
+            <div className="space-y-4 text-sm sm:text-base text-[#8B8C84] leading-relaxed mb-10">
+              <p>Gowrish has been building and shipping software since 2021, and has taught AI and engineering to more than 2,000 students and IT professionals.</p>
+              <p>He founded GAPSO AI to close something he had watched from both sides — as a builder taking on client work, and as an instructor in front of rooms full of capable people still waiting to be shown how the systems they studied are actually assembled.</p>
+              <p>He teaches GAPSO&apos;s cohorts live himself, so every question is answered by the person who builds and ships these systems commercially.</p>
             </div>
 
-            {/* Title & Subtitle */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-none mb-2">
-              Gowrish H B
-            </h2>
-            <p className="text-sm font-mono text-[#E44B27] tracking-wider uppercase mb-8">
-              Founder &amp; Chief Executive Officer
-            </p>
-
-            {/* Editorial Bios */}
-            <div className="space-y-4 text-sm sm:text-base text-[#9B9C94] font-normal leading-relaxed mb-8">
-              <p>
-                Gowrish has been building and shipping software since 2021, and has taught AI and engineering to more than 2,000 students and IT professionals.
-              </p>
-              <p>
-                He founded GAPSO AI to close something he had watched from both sides — as a builder taking on client work, and as an instructor in front of rooms full of capable people still waiting to be shown how the systems they studied are actually assembled.
-              </p>
-              <p>
-                He teaches GAPSO’s cohorts live himself, so every question is answered by the person who builds and ships these systems commercially.
-              </p>
-            </div>
-
-            {/* Stat Row */}
-            <div className="grid grid-cols-3 gap-6 py-6 border-y border-[#2B2D2B] mb-8">
-              {stats.map((s, idx) => (
-                <div key={idx} className="space-y-1">
-                  <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
-                    {s.value}
-                  </div>
-                  <div className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[#9B9C94] uppercase">
-                    {s.label}
-                  </div>
+            <div className="grid grid-cols-3 gap-8 py-8 border-y border-[#252724] mb-10">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="font-serif text-4xl lg:text-5xl text-white mb-1">{s.value}</div>
+                  <p className="font-mono text-[9px] text-[#8B8C84] tracking-widest uppercase">{s.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Blockquote */}
-            <blockquote className="relative pl-5 border-l border-[#E44B27] text-base sm:text-lg font-serif italic text-white/95 leading-relaxed mb-8">
-              “Everything I teach, I have shipped myself. It is a slower way to build a school, and the only honest one.”
+            <blockquote className="pl-4 border-l border-[#E44B27] text-lg font-serif italic text-white/90 leading-relaxed mb-8">
+              &ldquo;Everything I teach, I have shipped myself. It is a slower way to build a school, and the only honest one.&rdquo;
             </blockquote>
 
-            {/* Social Connect Links */}
-            <div className="flex flex-wrap items-center gap-6 pt-2 font-mono text-xs tracking-wider">
-              <span className="text-[#E44B27] font-semibold tracking-widest uppercase">
-                CONNECT
-              </span>
-              {socialLinks.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-[#9B9C94] hover:text-white transition-colors inline-flex items-center gap-1"
-                >
-                  <span>{item.label}</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#E44B27]" />
+            <div className="flex flex-wrap gap-6 font-mono text-xs tracking-wider">
+              <span className="text-[#E44B27] font-bold uppercase">Connect</span>
+              {links.map((l) => (
+                <a key={l.label} href={l.href} className="text-[#8B8C84] hover:text-white transition-colors flex items-center gap-1">
+                  {l.label} <ArrowUpRight className="w-3 h-3 text-[#E44B27]" />
                 </a>
               ))}
             </div>

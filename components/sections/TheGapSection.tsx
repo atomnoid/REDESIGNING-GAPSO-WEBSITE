@@ -3,90 +3,44 @@
 import React from 'react'
 
 export function TheGapSection() {
-  const gapItems = [
-    {
-      no: '01',
-      title: 'Theory that stops at the slide',
-      desc: 'Concepts get explained, then never implemented.',
-    },
-    {
-      no: '02',
-      title: 'Tool tours instead of foundations',
-      desc: 'You learn a product. The principles underneath stay invisible.',
-    },
-    {
-      no: '03',
-      title: 'Curriculum that ages quietly',
-      desc: 'Written once, taught for years, while the field moves weekly.',
-    },
-    {
-      no: '04',
-      title: 'Projects that are copied, not reasoned',
-      desc: 'Following along produces a result, not an understanding.',
-    },
-    {
-      no: '05',
-      title: 'Feedback that never arrives',
-      desc: 'Nobody reads the code. Nobody asks why you built it that way.',
-    },
-    {
-      no: '06',
-      title: 'No visible progression',
-      desc: 'It stays unclear what comes next, or what it’s building toward.',
-    },
+  const gaps = [
+    { no: '01', title: 'Tutorials teach features, not systems.', desc: 'You can follow every step and still not know how to change the objective.' },
+    { no: '02', title: 'Most AI courses skip the engineering part.', desc: 'They stop before retrieval, memory, tool use or anything that survives production.' },
+    { no: '03', title: 'The pace of tooling makes curricula obsolete.', desc: 'Courses built on last year\'s API version are already teaching the wrong thing.' },
+    { no: '04', title: 'Certificates say nothing about capability.', desc: 'A pass mark proves you finished. A project proves you understood.' },
+    { no: '05', title: 'Cohorts are too large to be useful.', desc: 'In a room of 200 you can\'t ask a real question and get a real answer.' },
+    { no: '06', title: 'Practice is treated as a bonus, not the point.', desc: 'When you spend more time reading slides than writing code, you leave with slides.' },
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
+    <section className="py-24 md:py-32 bg-[#111210] text-[#F6F4EE] border-b border-[#252724]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Head */}
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-            <span className="section-label text-[#E44B27]">
-              THE GAP
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
-            Watching tutorials isn’t the same as building.
-          </h2>
-          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
-            AI capability moves faster than most curricula can update. The result is familiar: hours of material consumed, and very little that can be run, changed or explained afterwards.
-          </p>
-        </div>
 
-        {/* 6 Gap Points: 2-Column Editorial List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 border-t border-[#2B2D2B] pt-12 mb-20">
-          {gapItems.map((item) => (
-            <div key={item.no} className="space-y-2">
-              <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs font-bold text-[#E44B27]">
-                  {item.no}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif text-white">
-                  {item.title}
-                </h3>
+        <p className="label mb-6">The Gap</p>
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-6 max-w-3xl">
+          Watching tutorials isn&apos;t the same as building.
+        </h2>
+        <p className="text-base sm:text-lg text-[#8B8C84] mb-20 max-w-2xl">
+          AI capability moves faster than most curricula can update. The result is familiar: hours of material consumed, and very little that can be run, changed or explained afterwards.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 border-t border-[#252724] pt-12 mb-20">
+          {gaps.map((g) => (
+            <div key={g.no}>
+              <div className="flex items-baseline gap-3 mb-1">
+                <span className="font-mono text-xs font-bold text-[#E44B27]">{g.no}</span>
+                <h3 className="text-lg font-serif text-white">{g.title}</h3>
               </div>
-              <p className="text-sm text-[#9B9C94] font-normal leading-relaxed pl-7">
-                {item.desc}
-              </p>
+              <p className="text-sm text-[#8B8C84] leading-relaxed pl-7">{g.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Closing Callout */}
-        <div className="pt-8 border-t border-[#2B2D2B] flex flex-col md:flex-row md:items-baseline justify-between gap-6">
-          <strong className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight font-sans">
-            Understand the system.
-            <br />
-            <span className="font-serif italic font-normal text-[#E44B27]">
-              Then build the system.
-            </span>
-          </strong>
-
-          <span className="font-mono text-xs tracking-widest text-[#9B9C94] uppercase">
-            GAPSO PEDAGOGY / 2026
-          </span>
+        <div className="pt-8 border-t border-[#252724]">
+          <p className="text-3xl sm:text-5xl font-normal text-white leading-tight">
+            Understand the system.{' '}
+            <span className="font-serif italic text-[#E44B27]">Then build the system.</span>
+          </p>
         </div>
       </div>
     </section>

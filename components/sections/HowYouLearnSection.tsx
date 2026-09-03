@@ -4,91 +4,51 @@ import React from 'react'
 
 export function HowYouLearnSection() {
   const steps = [
-    { no: '01', title: 'Concept', desc: 'The idea, and the reason it exists.' },
-    { no: '02', title: 'Guided Lab', desc: 'Run it yourself, with someone watching.' },
-    { no: '03', title: 'Assignment', desc: 'Apply it without the guardrails.' },
-    { no: '04', title: 'Project', desc: 'Build something that has to work.' },
-    { no: '05', title: 'Review', desc: 'Get told what to fix, then fix it.' },
+    { no: '01', title: 'Concept', desc: 'The trainer explains how something works — clearly, with the edge cases named.' },
+    { no: '02', title: 'Demonstration', desc: 'It gets built live in front of you, not shown via slides.' },
+    { no: '03', title: 'Practice', desc: 'You build the same thing from scratch, with guidance available.' },
+    { no: '04', title: 'Extension', desc: 'You change the objective. Now you understand, not just remember.' },
+    { no: '05', title: 'Review', desc: 'Code reviewed and corrected. You leave with working output.' },
   ]
 
-  const weekendBullets = [
-    'Weekend schedule · Batches that fit around the week.',
-    'Theory sessions · Concepts, first principles, context.',
-    'Guided labs · Hands on keyboard, same session.',
-    'Assignments · Work you complete on your own.',
-    'Q&A · Open questions, no wrong ones.',
-    'Office hours · Time set aside for being stuck.',
-    'Project reviews · Your work, read and critiqued.',
+  const weekend = [
+    'Session begins with a live build — no pre-recorded content',
+    'Every concept is paired with a keyboard exercise',
+    'Questions answered in real time by the person who shipped the system',
+    'Code review at the end of every session',
+    'You leave with something running, not just slides to read later',
+    'Same format every weekend — the discipline is the design',
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
+    <section className="py-24 md:py-32 bg-[#111210] text-[#F6F4EE] border-b border-[#252724]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Head */}
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-            <span className="section-label text-[#E44B27]">
-              HOW YOU LEARN
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
-            Every concept ends in something you can build.
-          </h2>
-          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
-            Sessions don&apos;t finish with a summary slide. They finish with something running on your machine that didn&apos;t exist that morning.
-          </p>
-        </div>
 
-        {/* 5 Steps Pipeline: Horizontal Flow */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border border-[#2B2D2B] divide-y sm:divide-y-0 sm:divide-x divide-[#2B2D2B] mb-20">
-          {steps.map((step) => (
-            <div
-              key={step.no}
-              className="p-8 flex flex-col justify-between min-h-[220px]"
-            >
-              <div>
-                <span className="font-mono text-xs font-bold text-[#E44B27] block mb-4">
-                  {step.no}
-                </span>
-                <h3 className="text-xl font-serif text-white mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-[#9B9C94] font-normal leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
+        <p className="label mb-6">How You Learn</p>
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4 max-w-3xl">
+          Every concept ends in something you can build.
+        </h2>
+        <p className="text-base sm:text-lg text-[#8B8C84] mb-20 max-w-2xl">
+          Sessions don&apos;t finish with a summary slide. They finish with something running on your machine that didn&apos;t exist that morning.
+        </p>
 
-              <div className="pt-4 mt-6 border-t border-[#2B2D2B]">
-                <span className="font-mono text-[9px] text-[#6C6D67] uppercase tracking-widest">
-                  STEP {step.no}
-                </span>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-px border-t border-[#252724] mb-20">
+          {steps.map((s) => (
+            <div key={s.no} className="pt-8 pr-6">
+              <span className="font-mono text-xs font-bold text-[#E44B27] block mb-3">{s.no}</span>
+              <h3 className="text-xl font-serif text-white mb-2">{s.title}</h3>
+              <p className="text-xs text-[#8B8C84] leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* What a Weekend Looks Like Box */}
-        <div className="bg-[#181A18] border border-[#2B2D2B] p-8 sm:p-12">
-          <div className="mb-4">
-            <span className="font-mono text-[10px] tracking-widest text-[#E44B27] uppercase font-semibold">
-              THEN AGAIN — ONE LEVEL DEEPER
-            </span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-serif text-white mb-8">
-            WHAT A WEEKEND LOOKS LIKE
-          </h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {weekendBullets.map((item, i) => (
-              <div
-                key={i}
-                className="p-4 bg-[#121312] border border-[#2B2D2B] flex items-start gap-3"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E44B27] mt-2 shrink-0" />
-                <span className="text-xs sm:text-sm text-[#D8D5CA] leading-relaxed">
-                  {item}
-                </span>
+        <div className="border-t border-[#252724] pt-12">
+          <p className="font-mono text-[10px] font-bold text-[#E44B27] uppercase tracking-widest mb-8">What a Weekend Looks Like</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-12">
+            {weekend.map((w, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="w-1 h-1 bg-[#E44B27] mt-2 shrink-0 rounded-full" />
+                <p className="text-sm text-[#8B8C84] leading-relaxed">{w}</p>
               </div>
             ))}
           </div>
