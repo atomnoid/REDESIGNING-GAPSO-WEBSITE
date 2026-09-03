@@ -27,8 +27,8 @@ export function SiteHeader({ applyHref }: { applyHref: string }) {
       <header className={`sticky top-0 z-50 w-full border-b border-[#D6D3C8] transition-all ${scrolled ? 'bg-[#F6F4EE]/95 backdrop-blur-md py-3.5' : 'bg-[#F6F4EE] py-4'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           <a href="#top" className="flex items-baseline gap-2 group">
-            <span className="font-serif text-xl text-[#111210] group-hover:text-[#E44B27] transition-colors">GAPSO</span>
-            <span className="font-mono text-[9px] text-[#6B6C65] uppercase tracking-widest">School of AI</span>
+            <span className="font-bold text-xl text-[#111210] group-hover:text-[#E44B27] transition-colors tracking-tight">GAPSO</span>
+            <span className="font-mono text-[9px] text-[#6B6C65] uppercase tracking-widest font-medium">School of AI</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#111210]">

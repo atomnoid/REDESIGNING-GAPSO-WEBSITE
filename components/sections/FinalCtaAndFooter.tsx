@@ -8,17 +8,17 @@ interface Props { applyHref: string }
 export function FinalCtaAndFooter({ applyHref }: Props) {
   return (
     <>
-      <section className="py-28 md:py-40 bg-[#111210] text-white border-b border-[#252724]">
+      <section className="py-28 md:py-40 bg-[#111210] text-white border-b border-[#252724] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className="text-6xl sm:text-8xl lg:text-9xl font-medium tracking-tight text-white leading-[0.92] mb-8">
+          <h2 className="text-6xl sm:text-8xl lg:text-9xl font-extrabold tracking-tight text-white leading-[0.92] mb-8">
             Start at{' '}
-            <span className="font-serif italic font-normal text-[#E44B27]">01.</span>
+            <span className="text-[#E44B27]">01.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-[#8B8C84] max-w-xl mb-10">
+          <p className="text-lg sm:text-xl text-[#8B8C84] max-w-xl mb-12 font-normal leading-relaxed">
             AI Fundamentals is free. Begin there, or tell us you&apos;re not sure yet and we&apos;ll work it out together.
           </p>
-          <div className="flex flex-wrap gap-5">
-            <a href={applyHref} className="btn py-3.5 px-7">
+          <div className="flex flex-wrap items-center gap-5">
+            <a href={applyHref} className="btn py-3.5 px-8 text-xs">
               <span>Apply Now</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
@@ -34,11 +34,11 @@ export function FinalCtaAndFooter({ applyHref }: Props) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-[#252724]">
             <div className="lg:col-span-4">
-              <a href="#top" className="flex items-baseline gap-2 mb-4">
-                <span className="font-serif text-2xl text-white">GAPSO</span>
+              <a href="#top" className="flex items-baseline gap-2 mb-4 group">
+                <span className="font-bold text-2xl text-white tracking-tight group-hover:text-[#E44B27] transition-colors">GAPSO</span>
                 <span className="font-mono text-[10px] text-[#8B8C84] uppercase tracking-widest">School of AI</span>
               </a>
-              <p className="text-sm text-[#8B8C84] max-w-xs leading-relaxed">
+              <p className="text-sm text-[#8B8C84] max-w-xs leading-relaxed font-normal">
                 AI education built around understanding and building — structured programs, small batches, and work you can explain.
               </p>
             </div>
