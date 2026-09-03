@@ -57,10 +57,10 @@ export function LearningSystemSection({ tracks }: Props) {
               </div>
               <a
                 href="#programs-detail"
-                className="w-12 h-12 bg-[#111210] text-white flex items-center justify-center hover:bg-[#E44B27] transition-all group-hover:scale-105 shrink-0"
+                className="w-12 h-12 bg-[#E44B27] text-white flex items-center justify-center hover:bg-[#CC3D1A] transition-all group-hover:scale-105 shrink-0 shadow-xs"
                 aria-label="Start AI Fundamentals"
               >
-                <ArrowUpRight className="w-5 h-5" />
+                <ArrowUpRight className="w-5 h-5 text-white stroke-[2.5]" />
               </a>
             </div>
           </div>
