@@ -56,7 +56,7 @@ const tracks: TrackData[] = [
 
 export default function Page() {
   return (
-    <main className="min-h-screen flex flex-col bg-[#F6F4EE] text-[#121312] selection:bg-[#E44B27] selection:text-white">
+    <main className="min-h-screen flex flex-col bg-white text-[#0D0D0C] selection:bg-[#E44B27] selection:text-white">
       {/* Accessible Skip Link */}
       <a
         href="#main-content"

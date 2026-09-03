@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export function TheGapSection() {
   const gapItems = [
@@ -38,71 +37,57 @@ export function TheGapSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+    <section className="py-24 md:py-32 bg-[#0D0D0C] text-[#F5F5F3] border-b border-[#242422] relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 bg-[#E44B27]" />
-            <span className="font-mono text-[11px] font-semibold tracking-[0.14em] text-[#E44B27] uppercase">
+            <span className="w-1.5 h-1.5 bg-[#E44B27]" />
+            <span className="section-label text-[#E44B27]">
               THE GAP
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
             Watching tutorials isn’t the same as building.
           </h2>
-          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9E9E9C] font-normal leading-relaxed">
             AI capability moves faster than most curricula can update. The result is familiar: hours of material consumed, and very little that can be run, changed or explained afterwards.
           </p>
         </div>
 
-        {/* 6-grid architectural breakdown */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#2B2D2B] mb-20">
-          {gapItems.map((item, idx) => (
-            <motion.div
-              key={item.no}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 sm:p-10 border-b border-r border-[#2B2D2B] bg-[#151715] hover:bg-[#1C1F1C] transition-colors duration-300 relative group"
-            >
-              <div className="flex items-center justify-between mb-4">
+        {/* 6 Gap Points: 2-Column Editorial List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 border-t border-[#242422] pt-12 mb-20">
+          {gapItems.map((item) => (
+            <div key={item.no} className="space-y-2">
+              <div className="flex items-baseline gap-3">
                 <span className="font-mono text-xs font-bold text-[#E44B27]">
                   {item.no}
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3A3D3A] group-hover:bg-[#E44B27] transition-colors" />
+                <h3 className="text-xl sm:text-2xl font-serif text-white">
+                  {item.title}
+                </h3>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif text-white mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-[#9B9C94] font-normal leading-relaxed">
+              <p className="text-sm text-[#9E9E9C] font-normal leading-relaxed pl-7">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Closing Callout */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="pt-8 border-t border-[#2B2D2B] flex flex-col md:flex-row md:items-baseline justify-between gap-6"
-        >
+        <div className="pt-8 border-t border-[#242422] flex flex-col md:flex-row md:items-baseline justify-between gap-6">
           <strong className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight font-sans">
             Understand the system.
             <br />
-            <em className="font-serif italic font-normal text-[#E44B27]">
+            <span className="font-serif italic font-normal text-[#E44B27]">
               Then build the system.
-            </em>
+            </span>
           </strong>
 
-          <span className="font-mono text-xs tracking-widest text-[#9B9C94] uppercase">
+          <span className="font-mono text-xs tracking-widest text-[#9E9E9C] uppercase">
             GAPSO PEDAGOGY / 2026
           </span>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

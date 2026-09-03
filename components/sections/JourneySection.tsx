@@ -39,26 +39,26 @@ export function JourneySection() {
   ]
 
   return (
-    <section id="learning" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
+    <section id="learning" className="py-24 md:py-32 bg-white border-b border-[#E6E5E1] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 bg-[#E44B27]" />
-            <span className="font-mono text-[11px] font-semibold tracking-[0.14em] text-[#E44B27] uppercase">
+            <span className="w-1.5 h-1.5 bg-[#E44B27]" />
+            <span className="section-label text-[#E44B27]">
               THE LEARNING JOURNEY
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0D0D0C] leading-[1.05] mb-4">
             Four stages. Each one goes a level deeper.
           </h2>
-          <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#6B6B69] font-normal leading-relaxed">
             Enter at whichever stage matches where you already are. Nothing later assumes you skipped the thinking earlier.
           </p>
         </div>
 
-        {/* 4 Stage Interactive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#D8D5CA] bg-white divide-y sm:divide-y-0 sm:divide-x divide-[#D8D5CA]">
+        {/* 4 Stage Stepper */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#E6E5E1] divide-y sm:divide-y-0 sm:divide-x divide-[#E6E5E1]">
           {journey.map((item, idx) => {
             const isSelected = activeStage === idx
 
@@ -66,49 +66,49 @@ export function JourneySection() {
               <button
                 key={item.no}
                 onClick={() => setActiveStage(idx)}
-                className={`p-8 text-left relative transition-all duration-300 flex flex-col justify-between min-h-[280px] group ${
-                  isSelected ? 'bg-[#ECE8DD]/60' : 'bg-white hover:bg-[#FAF9F5]'
+                className={`p-8 text-left relative transition-colors flex flex-col justify-between min-h-[260px] ${
+                  isSelected ? 'bg-[#FAFAF9]' : 'bg-white hover:bg-[#FAFAF9]/60'
                 }`}
               >
-                {/* Active Top Bar Indicator */}
+                {/* Active Indicator Bar */}
                 {isSelected && (
                   <motion.div
                     layoutId="activeStageIndicator"
-                    className="absolute top-0 left-0 right-0 h-1 bg-[#E44B27]"
+                    className="absolute top-0 left-0 right-0 h-[2px] bg-[#E44B27]"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-sm font-bold text-[#E44B27]">
+                    <span className="font-mono text-xs font-bold text-[#E44B27]">
                       {item.no}
                     </span>
-                    <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-wider">
+                    <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-wider">
                       {item.level}
                     </span>
                   </div>
 
-                  <h3 className="text-3xl font-serif text-[#121312] mb-2 group-hover:text-[#E44B27] transition-colors">
+                  <h3 className="text-2xl font-serif text-[#0D0D0C] mb-1">
                     {item.action}
                   </h3>
 
-                  <i className="font-mono text-[11px] font-semibold tracking-wider text-[#E44B27] uppercase block not-italic mb-4">
+                  <div className="font-mono text-[10px] font-semibold tracking-wider text-[#6B6B69] uppercase mb-4">
                     {item.track}
-                  </i>
+                  </div>
 
-                  <p className="text-sm text-[#6C6D67] font-normal leading-relaxed">
+                  <p className="text-sm text-[#6B6B69] font-normal leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#E5E2D8] mt-6 flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-widest">
+                <div className="pt-6 border-t border-[#E6E5E1] mt-6 flex items-center justify-between">
+                  <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-widest">
                     STAGE {item.no}
                   </span>
                   <ArrowRight
-                    className={`w-4 h-4 transition-transform ${
-                      isSelected ? 'text-[#E44B27] translate-x-1' : 'text-[#9B9C94]'
+                    className={`w-3.5 h-3.5 ${
+                      isSelected ? 'text-[#E44B27]' : 'text-[#C8C7C2]'
                     }`}
                   />
                 </div>

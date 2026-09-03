@@ -18,7 +18,7 @@ export function PrinciplesTicker() {
   return (
     <section
       aria-label="How GAPSO teaches"
-      className="relative overflow-hidden py-4 border-b border-[#D8D5CA] bg-[#ECE8DD]/60"
+      className="relative overflow-hidden py-3.5 border-b border-[#E6E5E1] bg-[#FAFAF9]"
     >
       <div className="flex w-max">
         <motion.div
@@ -26,7 +26,7 @@ export function PrinciplesTicker() {
           transition={{
             repeat: Infinity,
             repeatType: 'loop',
-            duration: 26,
+            duration: 28,
             ease: 'linear',
           }}
           className="flex items-center gap-12 whitespace-nowrap"
@@ -34,15 +34,15 @@ export function PrinciplesTicker() {
           {tickerItems.map((item, idx) => (
             <div key={idx} className="flex items-center gap-12">
               <span
-                className={`font-mono text-xs tracking-[0.14em] font-medium uppercase transition-colors ${
+                className={`font-mono text-[11px] tracking-[0.14em] font-medium uppercase ${
                   item.includes('50%')
                     ? 'text-[#E44B27] font-semibold'
-                    : 'text-[#6C6D67] hover:text-[#121312]'
+                    : 'text-[#6B6B69]'
                 }`}
               >
                 {item}
               </span>
-              <span className="w-1.5 h-1.5 bg-[#BCB8AC] rotate-45 inline-block" />
+              <span className="w-1 h-1 bg-[#C8C7C2] rotate-45 inline-block" />
             </div>
           ))}
         </motion.div>
