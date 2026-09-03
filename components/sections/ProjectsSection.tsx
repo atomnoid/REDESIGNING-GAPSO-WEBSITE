@@ -25,53 +25,21 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* Featured RAG Capstone Banner */}
-        <div className="mb-14 p-8 sm:p-10 bg-[#ECE8DD] border border-[#BCB8AC] relative group">
-          <div className="flex items-center justify-between font-mono text-[10px] tracking-widest text-[#E44B27] font-bold uppercase mb-4">
-            <span>FEATURED CAPSTONE</span>
-            <span>RETRIEVAL ARCHITECTURE</span>
-          </div>
-          <h3 className="text-3xl sm:text-4xl font-bold text-[#111210] tracking-tight mb-3">
-            RAG System
-          </h3>
-          <p className="text-base text-[#6B6C65] max-w-2xl font-normal leading-relaxed mb-6">
-            Answer questions over a body of documents the model was never trained on — and know when it shouldn&apos;t answer at all.
-          </p>
-          <div className="pt-4 border-t border-[#D6D3C8] flex flex-wrap items-center gap-2 text-xs font-mono text-[#6B6C65]">
-            <span className="text-[#111210] font-semibold">PIPELINE:</span>
-            <span>ARCHITECTURE</span>
-            <span>·</span>
-            <span>DOCUMENTS</span>
-            <span>·</span>
-            <span>CHUNKING</span>
-            <span>·</span>
-            <span className="text-[#E44B27] font-semibold">EMBEDDINGS</span>
-            <span>·</span>
-            <span>VECTOR STORE</span>
-            <span>·</span>
-            <span>RETRIEVAL</span>
-            <span>·</span>
-            <span>ANSWER</span>
-          </div>
-        </div>
-
-        {/* 4 Projects Grid with modern typography */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D6D3C8] border border-[#D6D3C8]">
+        <div className="divide-y divide-[#D6D3C8] border-t border-[#D6D3C8]">
           {projects.map((p, i) => (
-            <div key={p.title} className="p-8 bg-[#F6F4EE] hover:bg-[#ECE8DD]/60 transition-colors flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs font-bold text-[#E44B27]">0{i + 1}</span>
-                  <span className="font-mono text-[10px] font-semibold text-[#6B6C65] uppercase tracking-wider">{p.badge}</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#111210] tracking-tight mb-3 group-hover:text-[#E44B27] transition-colors">
-                  {p.title}
-                </h3>
+            <div key={p.title} className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start hover:bg-[#ECE8DD]/30 px-4 -mx-4 transition-colors">
+              <div className="lg:col-span-1">
+                <span className="font-mono text-xs font-bold text-[#E44B27]">0{i + 1}</span>
+              </div>
+              <div className="lg:col-span-4">
+                <p className="font-mono text-[10px] font-semibold text-[#6B6C65] uppercase tracking-wider mb-1">{p.badge}</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#111210] tracking-tight">{p.title}</h3>
+              </div>
+              <div className="lg:col-span-5">
                 <p className="text-sm text-[#6B6C65] leading-relaxed font-normal">{p.desc}</p>
               </div>
-              <div className="pt-6 mt-6 border-t border-[#D6D3C8] flex items-center justify-between">
-                <span className="font-mono text-[9px] text-[#6B6C65] uppercase tracking-wider">PROJECT SPEC</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#6B6C65] group-hover:text-[#E44B27] group-hover:translate-x-1 transition-all" />
+              <div className="lg:col-span-2 flex lg:justify-end items-center pt-2 lg:pt-0">
+                <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-wider">PROJECT SPEC</span>
               </div>
             </div>
           ))}
