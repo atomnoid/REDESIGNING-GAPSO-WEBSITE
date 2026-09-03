@@ -39,7 +39,7 @@ export function JourneySection() {
   ]
 
   return (
-    <section id="learning" className="py-24 md:py-32 bg-white border-b border-[#E6E5E1] relative">
+    <section id="learning" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
@@ -49,16 +49,16 @@ export function JourneySection() {
               THE LEARNING JOURNEY
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0D0D0C] leading-[1.05] mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
             Four stages. Each one goes a level deeper.
           </h2>
-          <p className="text-base sm:text-lg text-[#6B6B69] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
             Enter at whichever stage matches where you already are. Nothing later assumes you skipped the thinking earlier.
           </p>
         </div>
 
         {/* 4 Stage Stepper */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#E6E5E1] divide-y sm:divide-y-0 sm:divide-x divide-[#E6E5E1]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#D8D5CA] divide-y sm:divide-y-0 sm:divide-x divide-[#D8D5CA]">
           {journey.map((item, idx) => {
             const isSelected = activeStage === idx
 
@@ -67,7 +67,7 @@ export function JourneySection() {
                 key={item.no}
                 onClick={() => setActiveStage(idx)}
                 className={`p-8 text-left relative transition-colors flex flex-col justify-between min-h-[260px] ${
-                  isSelected ? 'bg-[#FAFAF9]' : 'bg-white hover:bg-[#FAFAF9]/60'
+                  isSelected ? 'bg-[#ECE8DD]' : 'bg-[#F6F4EE] hover:bg-[#ECE8DD]/60'
                 }`}
               >
                 {/* Active Indicator Bar */}
@@ -84,31 +84,31 @@ export function JourneySection() {
                     <span className="font-mono text-xs font-bold text-[#E44B27]">
                       {item.no}
                     </span>
-                    <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-wider">
+                    <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-wider">
                       {item.level}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-serif text-[#0D0D0C] mb-1">
+                  <h3 className="text-2xl font-serif text-[#121312] mb-1">
                     {item.action}
                   </h3>
 
-                  <div className="font-mono text-[10px] font-semibold tracking-wider text-[#6B6B69] uppercase mb-4">
+                  <div className="font-mono text-[10px] font-semibold tracking-wider text-[#6C6D67] uppercase mb-4">
                     {item.track}
                   </div>
 
-                  <p className="text-sm text-[#6B6B69] font-normal leading-relaxed">
+                  <p className="text-sm text-[#6C6D67] font-normal leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#E6E5E1] mt-6 flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-widest">
+                <div className="pt-6 border-t border-[#D8D5CA] mt-6 flex items-center justify-between">
+                  <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-widest">
                     STAGE {item.no}
                   </span>
                   <ArrowRight
                     className={`w-3.5 h-3.5 ${
-                      isSelected ? 'text-[#E44B27]' : 'text-[#C8C7C2]'
+                      isSelected ? 'text-[#E44B27]' : 'text-[#BCB8AC]'
                     }`}
                   />
                 </div>

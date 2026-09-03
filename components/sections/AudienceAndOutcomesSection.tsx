@@ -49,7 +49,7 @@ export function AudienceAndOutcomesSection() {
   return (
     <>
       {/* Audience Section */}
-      <section id="audience" className="py-24 md:py-32 bg-white border-b border-[#E6E5E1] relative">
+      <section id="audience" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Section Head */}
           <div className="max-w-3xl mb-16">
@@ -59,44 +59,44 @@ export function AudienceAndOutcomesSection() {
                 WHO IT&apos;S FOR
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0D0D0C] leading-[1.05] mb-4">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
               Four ways in. The same path forward.
             </h2>
-            <p className="text-base sm:text-lg text-[#6B6B69] font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
               Start where you are. What differs is the entry point, not what you&apos;re working toward.
             </p>
           </div>
 
           {/* 4 Audience Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#E6E5E1] divide-y sm:divide-y-0 sm:divide-x divide-[#E6E5E1]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#D8D5CA] divide-y sm:divide-y-0 sm:divide-x divide-[#D8D5CA]">
             {audiences.map((aud) => (
               <div
                 key={aud.no}
-                className="p-8 flex flex-col justify-between hover:bg-[#FAFAF9] transition-colors"
+                className="p-8 flex flex-col justify-between hover:bg-[#ECE8DD]/40 transition-colors"
               >
                 <div>
                   <span className="font-mono text-xs font-bold text-[#E44B27] block mb-6">
                     {aud.no}
                   </span>
 
-                  <h3 className="text-2xl font-serif text-[#0D0D0C] mb-2">
+                  <h3 className="text-2xl font-serif text-[#121312] mb-2">
                     {aud.title}
                   </h3>
 
-                  <div className="font-mono text-[10px] font-semibold text-[#6B6B69] tracking-wider uppercase block mb-4">
+                  <div className="font-mono text-[10px] font-semibold text-[#6C6D67] tracking-wider uppercase block mb-4">
                     {aud.cohort}
                   </div>
 
-                  <p className="text-sm text-[#6B6B69] font-normal leading-relaxed mb-6">
+                  <p className="text-sm text-[#6C6D67] font-normal leading-relaxed mb-6">
                     {aud.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#E6E5E1] mt-4">
-                  <small className="font-mono text-[9px] text-[#9E9E9C] tracking-widest uppercase block mb-1">
+                <div className="pt-6 border-t border-[#D8D5CA] mt-4">
+                  <small className="font-mono text-[9px] text-[#9B9C94] tracking-widest uppercase block mb-1">
                     TYPICAL ENTRY
                   </small>
-                  <strong className="font-mono text-xs text-[#0D0D0C] font-semibold block tracking-tight">
+                  <strong className="font-mono text-xs text-[#E44B27] font-semibold block tracking-tight">
                     {aud.entry}
                   </strong>
                 </div>
@@ -107,7 +107,7 @@ export function AudienceAndOutcomesSection() {
       </section>
 
       {/* Outcomes Section */}
-      <section id="outcomes" className="py-24 md:py-32 bg-white border-b border-[#E6E5E1] relative">
+      <section id="outcomes" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Section Head */}
           <div className="max-w-3xl mb-16">
@@ -117,31 +117,31 @@ export function AudienceAndOutcomesSection() {
                 OUTCOMES
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0D0D0C] leading-[1.05] mb-4">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
               What you&apos;ll actually be able to do.
             </h2>
-            <p className="text-base sm:text-lg text-[#6B6B69] font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
               Capabilities, not promises — and the stage each one is developed in.
             </p>
           </div>
 
           {/* Outcomes Matrix */}
-          <div className="max-w-4xl border-t border-[#E6E5E1] divide-y divide-[#E6E5E1]">
+          <div className="max-w-4xl border-t border-[#D8D5CA] divide-y divide-[#D8D5CA]">
             {outcomes.map((item, idx) => (
               <div
                 key={item.text}
-                className="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 hover:bg-[#FAFAF9] px-3 -mx-3 transition-colors"
+                className="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 hover:bg-[#ECE8DD]/40 px-3 -mx-3 transition-colors"
               >
                 <div className="flex items-baseline gap-4">
                   <span className="font-mono text-xs font-bold text-[#E44B27]">
                     0{idx + 1}
                   </span>
-                  <p className="text-base sm:text-lg text-[#0D0D0C] font-normal">
+                  <p className="text-base sm:text-lg text-[#121312] font-normal">
                     {item.text}
                   </p>
                 </div>
 
-                <small className="font-mono text-[11px] text-[#6B6B69] whitespace-nowrap pl-8 sm:pl-0">
+                <small className="font-mono text-[11px] text-[#6C6D67] whitespace-nowrap pl-8 sm:pl-0">
                   — developed in stage {item.stages}
                 </small>
               </div>

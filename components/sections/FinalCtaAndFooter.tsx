@@ -11,7 +11,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
   return (
     <>
       {/* Final CTA Section */}
-      <section className="py-28 md:py-36 bg-[#0D0D0C] text-white relative border-b border-[#242422]">
+      <section className="py-28 md:py-36 bg-[#121312] text-white relative border-b border-[#2B2D2B]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h2 className="text-5xl sm:text-7xl lg:text-[6.5rem] font-medium tracking-tight text-white leading-[0.94] mb-6">
@@ -21,7 +21,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
               </span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-[#9E9E9C] font-normal leading-relaxed max-w-xl mb-10">
+            <p className="text-lg sm:text-xl text-[#9B9C94] font-normal leading-relaxed max-w-xl mb-10">
               AI Fundamentals is free. Begin there, or tell us you’re not sure yet and we’ll work it out together.
             </p>
 
@@ -47,22 +47,22 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
       </section>
 
       {/* Footer Section */}
-      <footer id="blog" className="py-20 bg-[#0D0D0C] text-[#F5F5F3]">
+      <footer id="blog" className="py-20 bg-[#121312] text-[#F6F4EE]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-[#242422]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-[#2B2D2B]">
             {/* Left Brand Col */}
             <div className="lg:col-span-4 space-y-4">
               <a
                 href="#top"
                 className="inline-flex items-baseline gap-2 font-mono text-sm tracking-wider"
               >
-                <b className="font-sans font-bold text-xl text-white">GAPSO</b>
-                <span className="text-[10px] tracking-widest text-[#9E9E9C] uppercase font-semibold">
+                <b className="font-serif text-2xl text-white">GAPSO</b>
+                <span className="text-[10px] tracking-widest text-[#9B9C94] uppercase font-medium">
                   SCHOOL OF AI
                 </span>
               </a>
 
-              <p className="text-sm text-[#9E9E9C] font-normal leading-relaxed max-w-sm">
+              <p className="text-sm text-[#9B9C94] font-normal leading-relaxed max-w-sm">
                 AI education built around understanding and building — structured programs, small batches, and work you can explain.
               </p>
             </div>
@@ -74,7 +74,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
                 <b className="font-mono text-xs font-bold text-[#E44B27] tracking-widest uppercase block mb-4">
                   PROGRAMS
                 </b>
-                <div className="flex flex-col space-y-2.5 text-sm text-[#9E9E9C]">
+                <div className="flex flex-col space-y-2.5 text-sm text-[#9B9C94]">
                   <a href="#programs" className="hover:text-white transition-colors">
                     AI Fundamentals
                   </a>
@@ -95,7 +95,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
                 <b className="font-mono text-xs font-bold text-[#E44B27] tracking-widest uppercase block mb-4">
                   LEARNING
                 </b>
-                <div className="flex flex-col space-y-2.5 text-sm text-[#9E9E9C]">
+                <div className="flex flex-col space-y-2.5 text-sm text-[#9B9C94]">
                   <a href="#learning" className="hover:text-white transition-colors">
                     Learning journey
                   </a>
@@ -116,7 +116,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
                 <b className="font-mono text-xs font-bold text-[#E44B27] tracking-widest uppercase block mb-4">
                   SCHOOL
                 </b>
-                <div className="flex flex-col space-y-2.5 text-sm text-[#9E9E9C]">
+                <div className="flex flex-col space-y-2.5 text-sm text-[#9B9C94]">
                   <a href="#why" className="hover:text-white transition-colors">
                     Why GAPSO
                   </a>
@@ -135,7 +135,7 @@ export function FinalCtaAndFooter({ applyHref }: FinalCtaAndFooterProps) {
           </div>
 
           {/* Bottom Copyright */}
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#6B6B69]">
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#777873]">
             <small className="text-xs">© 2026 GAPSO School of AI</small>
             <small className="text-xs text-[#E44B27] tracking-widest font-semibold uppercase">
               LEARN BY BUILDING

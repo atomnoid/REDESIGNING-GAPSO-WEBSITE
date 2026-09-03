@@ -19,7 +19,7 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
   return (
     <section
       id="top"
-      className="relative pt-16 md:pt-24 pb-16 border-b border-[#E6E5E1] bg-white"
+      className="relative pt-16 md:pt-24 pb-16 border-b border-[#D8D5CA] bg-[#F6F4EE]"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -34,7 +34,7 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[4.75rem] font-medium tracking-tight text-[#0D0D0C] leading-[1.02] mb-6">
+            <h1 className="text-4xl sm:text-6xl lg:text-[4.75rem] font-medium tracking-tight text-[#121312] leading-[1.02] mb-6">
               Don’t just learn AI.
               <br />
               <span className="font-serif italic font-normal text-[#E44B27]">
@@ -44,7 +44,7 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-[#6B6B69] max-w-xl font-normal leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-[#6C6D67] max-w-xl font-normal leading-relaxed mb-8">
               GAPSO School of AI trains students and professionals to understand,
               build and ship real AI systems — from first principles to production.
             </p>
@@ -67,43 +67,43 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
           </div>
 
           {/* Right Column: Editorial Learning Architecture Card */}
-          <div className="lg:col-span-5 bg-[#FAFAF9] border border-[#E6E5E1] p-6 sm:p-8">
-            <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#E6E5E1]">
-              <span className="font-mono text-[10px] font-semibold tracking-widest text-[#0D0D0C] uppercase">
+          <div className="lg:col-span-5 bg-[#ECE8DD] border border-[#D8D5CA] p-6 sm:p-8">
+            <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#D8D5CA]">
+              <span className="font-mono text-[10px] font-semibold tracking-widest text-[#121312] uppercase">
                 THE LEARNING PATHWAY
               </span>
-              <span className="font-mono text-[10px] text-[#E44B27] tracking-widest uppercase">
+              <span className="font-mono text-[10px] text-[#E44B27] tracking-widest uppercase font-semibold">
                 4 STAGES
               </span>
             </div>
 
-            <div className="space-y-4 divide-y divide-[#E6E5E1]">
+            <div className="space-y-4 divide-y divide-[#D8D5CA]">
               {learningStages.map((stage, idx) => (
                 <div key={stage.no} className={idx === 0 ? '' : 'pt-4'}>
                   <div className="flex items-baseline justify-between mb-1">
-                    <span className="font-serif text-lg text-[#0D0D0C]">
+                    <span className="font-serif text-lg text-[#121312]">
                       {stage.title}
                     </span>
-                    <span className="font-mono text-[10px] text-[#9E9E9C]">
+                    <span className="font-mono text-[10px] text-[#9B9C94]">
                       {stage.no}
                     </span>
                   </div>
-                  <p className="text-xs text-[#6B6B69] leading-relaxed">
+                  <p className="text-xs text-[#6C6D67] leading-relaxed">
                     {stage.desc}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#E6E5E1] flex items-center justify-between font-mono text-[10px] text-[#6B6B69] uppercase tracking-wider">
+            <div className="mt-6 pt-4 border-t border-[#D8D5CA] flex items-center justify-between font-mono text-[10px] text-[#6C6D67] uppercase tracking-wider">
               <span>BENGALURU, INDIA</span>
-              <span className="text-[#0D0D0C] font-semibold">LIVE IN-PERSON &amp; ONLINE</span>
+              <span className="text-[#121312] font-semibold">LIVE IN-PERSON &amp; ONLINE</span>
             </div>
           </div>
         </div>
 
         {/* Hero Meta Bar */}
-        <div className="mt-16 pt-6 border-t border-[#E6E5E1] grid grid-cols-1 sm:grid-cols-3 gap-4 text-[#6B6B69] font-mono text-[11px] tracking-wider uppercase">
+        <div className="mt-16 pt-6 border-t border-[#D8D5CA] grid grid-cols-1 sm:grid-cols-3 gap-4 text-[#6C6D67] font-mono text-[11px] tracking-wider uppercase">
           <div className="flex items-center gap-3">
             <span className="w-1.5 h-1.5 bg-[#E44B27]" />
             <span>50% Theory / 50% Practical</span>

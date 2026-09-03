@@ -40,7 +40,7 @@ export function ProjectsSection() {
   ]
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-white border-b border-[#E6E5E1] relative">
+    <section id="projects" className="py-24 md:py-32 bg-[#F6F4EE] border-b border-[#D8D5CA] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
@@ -50,32 +50,32 @@ export function ProjectsSection() {
               PROJECT-DRIVEN
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#0D0D0C] leading-[1.05] mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#121312] leading-[1.05] mb-4">
             Something to open, run and explain.
           </h2>
-          <p className="text-base sm:text-lg text-[#6B6B69] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#6C6D67] font-normal leading-relaxed">
             A certificate records that you attended. A project records what you can do — and lets you walk someone through it line by line. You get both.
           </p>
         </div>
 
         {/* Featured Project Showcase: RAG System */}
-        <div className="mb-16 bg-[#FAFAF9] border border-[#E6E5E1] p-8 sm:p-12 relative">
+        <div className="mb-16 bg-[#ECE8DD] border border-[#BCB8AC] p-8 sm:p-12 relative">
           <div className="flex items-center justify-between font-mono text-xs tracking-widest text-[#E44B27] font-semibold uppercase mb-4">
             <span>FEATURED CAPSTONE</span>
             <span>RETRIEVAL</span>
           </div>
 
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#0D0D0C] mb-4">
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#121312] mb-4">
             RAG System
           </h3>
 
-          <p className="text-base sm:text-lg text-[#6B6B69] max-w-2xl font-normal leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-[#6C6D67] max-w-2xl font-normal leading-relaxed mb-8">
             Answer questions over a body of documents the model was never trained on — and know when it shouldn’t answer at all.
           </p>
 
           {/* Interactive RAG Pipeline visualization */}
-          <div className="pt-6 border-t border-[#E6E5E1]">
-            <div className="font-mono text-[10px] text-[#6B6B69] uppercase tracking-widest mb-4">
+          <div className="pt-6 border-t border-[#D8D5CA]">
+            <div className="font-mono text-[10px] text-[#6C6D67] uppercase tracking-widest mb-4">
               PIPELINE ARCHITECTURE
             </div>
 
@@ -91,51 +91,51 @@ export function ProjectsSection() {
                       className={`px-3 py-1.5 border font-mono text-[10px] sm:text-[11px] font-medium tracking-wider uppercase transition-colors cursor-pointer ${
                         isActive
                           ? 'bg-[#E44B27] text-white border-[#E44B27]'
-                          : 'bg-white text-[#0D0D0C] border-[#E6E5E1] hover:border-[#0D0D0C]'
+                          : 'bg-[#F6F4EE] text-[#121312] border-[#D8D5CA] hover:border-[#121312]'
                       }`}
                     >
                       {step}
                     </button>
                     {idx < pipelineSteps.length - 1 && (
-                      <span className="text-[#C8C7C2] font-mono text-xs">·</span>
+                      <span className="text-[#9B9C94] font-mono text-xs">·</span>
                     )}
                   </React.Fragment>
                 )
               })}
             </div>
 
-            <div className="mt-4 text-xs font-mono text-[#9E9E9C]">
+            <div className="mt-4 text-xs font-mono text-[#6C6D67]">
               ARCHITECTURE · DOCUMENTS · CHUNKING · EMBEDDINGS · VECTOR STORE · RETRIEVAL · ANSWER
             </div>
           </div>
         </div>
 
         {/* 4 Project Grid: Clean Editorial Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#E6E5E1] divide-y sm:divide-y-0 sm:divide-x divide-[#E6E5E1]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-[#D8D5CA] divide-y sm:divide-y-0 sm:divide-x divide-[#D8D5CA]">
           {projectList.map((p, idx) => (
             <div
               key={p.title}
-              className="p-8 flex flex-col justify-between hover:bg-[#FAFAF9] transition-colors"
+              className="p-8 flex flex-col justify-between hover:bg-[#ECE8DD]/40 transition-colors"
             >
               <div>
                 <span className="font-mono text-[9px] font-semibold text-[#E44B27] tracking-wider uppercase block mb-4">
                   0{idx + 1} / {p.badge}
                 </span>
 
-                <h3 className="text-xl sm:text-2xl font-serif text-[#0D0D0C] mb-3">
+                <h3 className="text-xl sm:text-2xl font-serif text-[#121312] mb-3">
                   {p.title}
                 </h3>
 
-                <p className="text-sm text-[#6B6B69] font-normal leading-relaxed">
+                <p className="text-sm text-[#6C6D67] font-normal leading-relaxed">
                   {p.desc}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#E6E5E1] flex items-center justify-between">
-                <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-wider">
+              <div className="pt-6 mt-6 border-t border-[#D8D5CA] flex items-center justify-between">
+                <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-wider">
                   PROJECT SPEC
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#9E9E9C]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#9B9C94]" />
               </div>
             </div>
           ))}

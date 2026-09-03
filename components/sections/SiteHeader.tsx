@@ -33,8 +33,8 @@ export function SiteHeader({ applyHref }: SiteHeaderProps) {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-[#E6E5E1] py-3.5'
-            : 'bg-white border-b border-[#E6E5E1] py-4'
+            ? 'bg-[#F6F4EE]/95 backdrop-blur-md border-b border-[#D8D5CA] py-3.5'
+            : 'bg-[#F6F4EE] border-b border-[#D8D5CA] py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -43,16 +43,16 @@ export function SiteHeader({ applyHref }: SiteHeaderProps) {
             href="#top"
             className="group flex items-baseline gap-2 font-mono text-xs tracking-wider"
           >
-            <span className="font-sans font-bold text-lg tracking-tight text-[#0D0D0C] group-hover:text-[#E44B27] transition-colors">
+            <span className="font-serif text-xl tracking-tight text-[#121312] group-hover:text-[#E44B27] transition-colors">
               GAPSO
             </span>
-            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#6B6B69] uppercase">
+            <span className="text-[10px] font-semibold tracking-[0.14em] text-[#6C6D67] uppercase">
               SCHOOL OF AI
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#2A2A28]">
+          <nav className="hidden md:flex items-center gap-8 text-[13px] font-medium text-[#2C2E2C]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -93,7 +93,7 @@ export function SiteHeader({ applyHref }: SiteHeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-x-0 top-[60px] z-40 bg-white border-b border-[#E6E5E1] shadow-lg md:hidden px-6 py-6"
+            className="fixed inset-x-0 top-[60px] z-40 bg-[#F6F4EE] border-b border-[#D8D5CA] shadow-lg md:hidden px-6 py-6"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -101,10 +101,10 @@ export function SiteHeader({ applyHref }: SiteHeaderProps) {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium py-2 border-b border-[#F0EFEB] text-[#0D0D0C] hover:text-[#E44B27] flex items-center justify-between"
+                  className="text-base font-medium py-2 border-b border-[#D8D5CA] text-[#121312] hover:text-[#E44B27] flex items-center justify-between"
                 >
                   <span>{link.label}</span>
-                  <span className="text-xs font-mono text-[#9E9E9C]">↗</span>
+                  <span className="text-xs font-mono text-[#9B9C94]">↗</span>
                 </a>
               ))}
               <a

@@ -13,7 +13,7 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
   return (
     <section
       id="programs-detail"
-      className="py-24 md:py-32 bg-[#0D0D0C] text-[#F5F5F3] border-b border-[#242422] relative"
+      className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
@@ -27,15 +27,15 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
             Choose your entry point.
           </h2>
-          <p className="text-base sm:text-lg text-[#9E9E9C] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
             Start free. Then choose the track designed for where you are.
           </p>
         </div>
 
         {/* Free Program Card */}
-        <div className="mb-20 bg-[#161614] text-white p-8 sm:p-12 border border-[#242422] relative">
+        <div className="mb-20 bg-[#181A18] text-white p-8 sm:p-12 border border-[#2B2D2B] relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-[#242422] pb-6 lg:pb-0 lg:pr-8">
+            <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-[#2B2D2B] pb-6 lg:pb-0 lg:pr-8">
               <span className="font-mono text-[10px] tracking-widest text-[#E44B27] uppercase font-semibold block mb-2">
                 FREE ENTRY PROGRAM
               </span>
@@ -43,13 +43,13 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
                 FREE
               </div>
               <h3 className="font-serif text-3xl mb-1 text-white">AI Fundamentals</h3>
-              <p className="font-mono text-xs text-[#9E9E9C] tracking-wider uppercase">
+              <p className="font-mono text-xs text-[#9B9C94] tracking-wider uppercase">
                 OPEN TO ALL
               </p>
             </div>
 
             <div className="lg:col-span-5">
-              <p className="text-sm sm:text-base text-[#C8C7C2] leading-relaxed font-normal">
+              <p className="text-sm sm:text-base text-[#D8D5CA] leading-relaxed font-normal">
                 Nobody should pay to find out whether AI is for them. Everyone begins on the same free foundation course, then routes into the track that matches where they are starting from.
               </p>
             </div>
@@ -67,11 +67,11 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
         </div>
 
         {/* Specialist Tracks Heading */}
-        <div className="mb-10 pb-4 border-b border-[#242422] flex items-center justify-between">
+        <div className="mb-10 pb-4 border-b border-[#2B2D2B] flex items-center justify-between">
           <span className="font-mono text-xs font-semibold tracking-widest text-[#E44B27] uppercase">
             SPECIALIST TRACKS
           </span>
-          <span className="font-mono text-[10px] text-[#9E9E9C] uppercase">
+          <span className="font-mono text-[10px] text-[#9B9C94] uppercase">
             3 PATHWAYS AVAILABLE
           </span>
         </div>
@@ -81,7 +81,7 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
           {tracks.map((t) => (
             <article
               key={t.no}
-              className="bg-[#161614] border border-[#242422] p-8 sm:p-12 relative"
+              className="bg-[#181A18] border border-[#2B2D2B] p-8 sm:p-12 relative"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Left meta */}
@@ -90,14 +90,14 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
                     <span className="font-mono text-xs font-bold text-[#E44B27]">
                       Track {t.no}
                     </span>
-                    <span className="font-mono text-[10px] text-[#9E9E9C] uppercase tracking-wider">
+                    <span className="font-mono text-[10px] text-[#9B9C94] uppercase tracking-wider">
                       {t.audience}
                     </span>
                   </div>
                   <h3 className="font-serif text-3xl sm:text-4xl text-white">
                     {t.title}
                   </h3>
-                  <p className="text-sm text-[#9E9E9C] leading-relaxed font-normal">
+                  <p className="text-sm text-[#9B9C94] leading-relaxed font-normal">
                     {t.desc}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
                 {/* Middle details */}
                 <div className="lg:col-span-5 space-y-6">
                   {/* Skills pill list */}
-                  <div className="p-4 bg-[#0D0D0C] border border-[#242422]">
+                  <div className="p-4 bg-[#121312] border border-[#2B2D2B]">
                     <span className="font-mono text-[9px] tracking-widest text-[#E44B27] uppercase block mb-1.5 font-semibold">
                       CURRICULUM FOCUS
                     </span>
@@ -115,16 +115,16 @@ export function ProgramsDetailSection({ tracks, applyHref }: ProgramsDetailSecti
                   </div>
 
                   <div className="space-y-1.5">
-                    <small className="font-mono text-[9px] tracking-widest text-[#9E9E9C] uppercase block font-semibold">
+                    <small className="font-mono text-[9px] tracking-widest text-[#9B9C94] uppercase block font-semibold">
                       TARGET ROLES
                     </small>
-                    <p className="text-sm text-[#C8C7C2] leading-relaxed font-sans font-normal">
+                    <p className="text-sm text-[#D8D5CA] leading-relaxed font-sans font-normal">
                       {t.roles}
                     </p>
                   </div>
 
                   <div className="space-y-1.5">
-                    <small className="font-mono text-[9px] tracking-widest text-[#9E9E9C] uppercase block font-semibold">
+                    <small className="font-mono text-[9px] tracking-widest text-[#9B9C94] uppercase block font-semibold">
                       WHAT YOU WILL BUILD
                     </small>
                     <p className="text-sm text-[#E44B27] font-medium leading-relaxed">

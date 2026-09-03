@@ -37,7 +37,7 @@ export function TheGapSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#0D0D0C] text-[#F5F5F3] border-b border-[#242422] relative">
+    <section className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
@@ -50,13 +50,13 @@ export function TheGapSection() {
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
             Watching tutorials isn’t the same as building.
           </h2>
-          <p className="text-base sm:text-lg text-[#9E9E9C] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
             AI capability moves faster than most curricula can update. The result is familiar: hours of material consumed, and very little that can be run, changed or explained afterwards.
           </p>
         </div>
 
         {/* 6 Gap Points: 2-Column Editorial List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 border-t border-[#242422] pt-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 border-t border-[#2B2D2B] pt-12 mb-20">
           {gapItems.map((item) => (
             <div key={item.no} className="space-y-2">
               <div className="flex items-baseline gap-3">
@@ -67,7 +67,7 @@ export function TheGapSection() {
                   {item.title}
                 </h3>
               </div>
-              <p className="text-sm text-[#9E9E9C] font-normal leading-relaxed pl-7">
+              <p className="text-sm text-[#9B9C94] font-normal leading-relaxed pl-7">
                 {item.desc}
               </p>
             </div>
@@ -75,7 +75,7 @@ export function TheGapSection() {
         </div>
 
         {/* Closing Callout */}
-        <div className="pt-8 border-t border-[#242422] flex flex-col md:flex-row md:items-baseline justify-between gap-6">
+        <div className="pt-8 border-t border-[#2B2D2B] flex flex-col md:flex-row md:items-baseline justify-between gap-6">
           <strong className="text-2xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight font-sans">
             Understand the system.
             <br />
@@ -84,7 +84,7 @@ export function TheGapSection() {
             </span>
           </strong>
 
-          <span className="font-mono text-xs tracking-widest text-[#9E9E9C] uppercase">
+          <span className="font-mono text-xs tracking-widest text-[#9B9C94] uppercase">
             GAPSO PEDAGOGY / 2026
           </span>
         </div>

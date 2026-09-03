@@ -22,7 +22,7 @@ export function HowYouLearnSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-[#0D0D0C] text-[#F5F5F3] border-b border-[#242422] relative">
+    <section className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Head */}
         <div className="max-w-3xl mb-16">
@@ -35,13 +35,13 @@ export function HowYouLearnSection() {
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white leading-[1.05] mb-4">
             Every concept ends in something you can build.
           </h2>
-          <p className="text-base sm:text-lg text-[#9E9E9C] font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#9B9C94] font-normal leading-relaxed">
             Sessions don&apos;t finish with a summary slide. They finish with something running on your machine that didn&apos;t exist that morning.
           </p>
         </div>
 
         {/* 5 Steps Pipeline: Horizontal Flow */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border border-[#242422] divide-y sm:divide-y-0 sm:divide-x divide-[#242422] mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border border-[#2B2D2B] divide-y sm:divide-y-0 sm:divide-x divide-[#2B2D2B] mb-20">
           {steps.map((step) => (
             <div
               key={step.no}
@@ -54,13 +54,13 @@ export function HowYouLearnSection() {
                 <h3 className="text-xl font-serif text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-[#9E9E9C] font-normal leading-relaxed">
+                <p className="text-sm text-[#9B9C94] font-normal leading-relaxed">
                   {step.desc}
                 </p>
               </div>
 
-              <div className="pt-4 mt-6 border-t border-[#242422]">
-                <span className="font-mono text-[9px] text-[#6B6B69] uppercase tracking-widest">
+              <div className="pt-4 mt-6 border-t border-[#2B2D2B]">
+                <span className="font-mono text-[9px] text-[#6C6D67] uppercase tracking-widest">
                   STEP {step.no}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export function HowYouLearnSection() {
         </div>
 
         {/* What a Weekend Looks Like Box */}
-        <div className="bg-[#161614] border border-[#242422] p-8 sm:p-12">
+        <div className="bg-[#181A18] border border-[#2B2D2B] p-8 sm:p-12">
           <div className="mb-4">
             <span className="font-mono text-[10px] tracking-widest text-[#E44B27] uppercase font-semibold">
               THEN AGAIN — ONE LEVEL DEEPER
@@ -83,10 +83,10 @@ export function HowYouLearnSection() {
             {weekendBullets.map((item, i) => (
               <div
                 key={i}
-                className="p-4 bg-[#0D0D0C] border border-[#242422] flex items-start gap-3"
+                className="p-4 bg-[#121312] border border-[#2B2D2B] flex items-start gap-3"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E44B27] mt-2 shrink-0" />
-                <span className="text-xs sm:text-sm text-[#C8C7C2] leading-relaxed">
+                <span className="text-xs sm:text-sm text-[#D8D5CA] leading-relaxed">
                   {item}
                 </span>
               </div>

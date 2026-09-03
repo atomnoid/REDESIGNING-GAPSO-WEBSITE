@@ -1,12 +1,12 @@
 @import 'tailwindcss';
 
 @theme inline {
-  --color-background: var(--white);
+  --color-background: var(--paper);
   --color-foreground: var(--ink);
-  --color-card: var(--surface);
+  --color-card: var(--paper-card);
   --color-card-foreground: var(--ink);
   --color-primary: var(--signal);
-  --color-primary-foreground: #ffffff;
+  --color-primary-foreground: #FFFFFF;
   --color-border: var(--line);
   --color-muted-foreground: var(--muted);
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -15,31 +15,34 @@
 }
 
 :root {
-  /* Backgrounds */
+  /* Exact GAPSO Brand Theme */
+  --paper: #F6F4EE;
+  --paper-subtle: #F0EDE5;
+  --paper-card: #ECE8DD;
+  --paper-card-hover: #E6E1D3;
   --white: #FFFFFF;
-  --surface: #F5F5F3;
-  --surface-subtle: #FAFAF9;
 
   /* Ink */
-  --ink: #0D0D0C;
-  --ink-secondary: #2A2A28;
-  --muted: #6B6B69;
-  --muted-light: #9E9E9C;
+  --ink: #121312;
+  --ink-secondary: #2C2E2C;
+  --muted: #6C6D67;
+  --muted-light: #9B9C94;
 
-  /* Borders */
-  --line: #E6E5E1;
-  --line-strong: #C8C7C2;
-  --line-dark: #242422;
+  /* Lines */
+  --line: #D8D5CA;
+  --line-subtle: #E5E2D8;
+  --line-strong: #BCB8AC;
+  --line-dark: #2B2D2B;
 
-  /* Accent — used sparingly */
+  /* Accent Signal Terracotta */
   --signal: #E44B27;
   --signal-hover: #CC3D1A;
   --signal-dim: rgba(228, 75, 39, 0.08);
 
-  /* Dark surfaces */
-  --dark: #0D0D0C;
-  --dark-surface: #161614;
-  --dark-card: #1C1C1A;
+  /* Obsidian Contrast */
+  --dark: #121312;
+  --dark-surface: #181A18;
+  --dark-card: #1E201E;
 
   color-scheme: light;
 }
@@ -50,13 +53,13 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--white);
+  background-color: var(--paper);
   color: var(--ink);
 }
 
 body {
   margin: 0;
-  background-color: var(--white);
+  background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 15px;

@@ -22,13 +22,13 @@ export function TrainerSection({ imageUrl }: TrainerSectionProps) {
   ]
 
   return (
-    <section id="why" className="py-24 md:py-32 bg-[#0D0D0C] text-[#F5F5F3] border-b border-[#242422] relative">
+    <section id="why" className="py-24 md:py-32 bg-[#121312] text-[#F6F4EE] border-b border-[#2B2D2B] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Portrait */}
           <div className="lg:col-span-5">
             <div className="max-w-md mx-auto lg:max-w-none">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#161614] border border-[#242422]">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#181A18] border border-[#2B2D2B]">
                 <img
                   src={imageUrl}
                   alt="Gowrish H B"
@@ -36,7 +36,7 @@ export function TrainerSection({ imageUrl }: TrainerSectionProps) {
                 />
               </div>
 
-              <div className="mt-4 flex items-center justify-between font-mono text-[10px] text-[#9E9E9C] tracking-widest uppercase">
+              <div className="mt-4 flex items-center justify-between font-mono text-[10px] text-[#9B9C94] tracking-widest uppercase">
                 <span>THE TRAINER / 2026</span>
                 <span className="text-[#E44B27]">LIVE IN-PERSON &amp; ONLINE</span>
               </div>
@@ -62,7 +62,7 @@ export function TrainerSection({ imageUrl }: TrainerSectionProps) {
             </p>
 
             {/* Editorial Bios */}
-            <div className="space-y-4 text-sm sm:text-base text-[#9E9E9C] font-normal leading-relaxed mb-8">
+            <div className="space-y-4 text-sm sm:text-base text-[#9B9C94] font-normal leading-relaxed mb-8">
               <p>
                 Gowrish has been building and shipping software since 2021, and has taught AI and engineering to more than 2,000 students and IT professionals.
               </p>
@@ -75,13 +75,13 @@ export function TrainerSection({ imageUrl }: TrainerSectionProps) {
             </div>
 
             {/* Stat Row */}
-            <div className="grid grid-cols-3 gap-6 py-6 border-y border-[#242422] mb-8">
+            <div className="grid grid-cols-3 gap-6 py-6 border-y border-[#2B2D2B] mb-8">
               {stats.map((s, idx) => (
                 <div key={idx} className="space-y-1">
                   <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
                     {s.value}
                   </div>
-                  <div className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[#9E9E9C] uppercase">
+                  <div className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[#9B9C94] uppercase">
                     {s.label}
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export function TrainerSection({ imageUrl }: TrainerSectionProps) {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-[#9E9E9C] hover:text-white transition-colors inline-flex items-center gap-1"
+                  className="text-[#9B9C94] hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   <span>{item.label}</span>
                   <ArrowUpRight className="w-3 h-3 text-[#E44B27]" />
