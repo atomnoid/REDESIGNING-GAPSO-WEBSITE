@@ -1,0 +1,379 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-card: var(--paper-card);
+  --color-card-foreground: var(--ink);
+  --color-primary: var(--signal);
+  --color-primary-foreground: var(--paper);
+  --color-border: var(--line);
+  --color-muted-foreground: var(--muted);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-mono: var(--font-plex), 'SF Mono', Consolas, monospace;
+}
+
+:root {
+  --paper: #F6F4EE;
+  --paper-subtle: #F0EDE5;
+  --paper-card: #ECE8DD;
+  --paper-elevated: #FFFFFF;
+  --ink: #121312;
+  --ink-secondary: #2C2E2C;
+  --muted: #6C6D67;
+  --muted-light: #9B9C94;
+  --line: #D8D5CA;
+  --line-strong: #BCB8AC;
+  --line-dark: #2B2D2B;
+  --signal: #E44B27;
+  --signal-hover: #CF3E1B;
+  --signal-soft: rgba(228, 75, 39, 0.08);
+  --dark: #121312;
+  --dark-surface: #181A18;
+  --dark-card: #202220;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Subtle blueprint background grid for editorial architectural feel */
+.bg-blueprint-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 24, 23, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 24, 23, 0.04) 1px, transparent 1px);
+}
+
+.bg-blueprint-grid-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(246, 244, 238, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(246, 244, 238, 0.05) 1px, transparent 1px);
+}
+
+/* Noise overlay utility */
+.texture-paper {
+  background-color: var(--paper);
+  position: relative;
+}
+
+/* Typography styles */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-mono-tag {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Interactive elements */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Premium tactile buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background-color: var(--signal);
+  color: #FFFFFF !important;
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--signal);
+  box-shadow: 3px 3px 0px var(--ink);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--ink);
+  background-color: var(--signal-hover);
+}
+
+.btn-primary:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--ink);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background-color: var(--ink);
+  color: var(--paper) !important;
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  box-shadow: 3px 3px 0px var(--signal);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--signal);
+  background-color: #000000;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: transparent;
+  color: var(--ink);
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--line-strong);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+  background-color: var(--signal-soft);
+}
+
+/* High-contrast solid CTA button (never goes white-on-white) */
+.btn-cta-invert {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #121312 !important;
+  color: #FFFFFF !important;
+  padding: 0.95rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #121312;
+  box-shadow: 4px 4px 0px #FFFFFF;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-cta-invert:hover,
+.btn-cta-invert:focus-visible {
+  background-color: #FFFFFF !important;
+  color: #121312 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 5px 5px 0px #121312;
+  transform: translate(-2px, -2px);
+}
+
+.btn-cta-invert:hover *,
+.btn-cta-invert:focus-visible * {
+  color: #121312 !important;
+}
+
+/* Editorial Semi-Button for Track Navigation (not a heavy button, sleek architectural link-button hybrid) */
+.semi-button-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #121312;
+  border: 1px solid #D8D5CA;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.semi-button-track::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.semi-button-track:hover,
+.semi-button-track:focus-visible {
+  border-color: #121312;
+  color: var(--signal);
+  background-color: rgba(228, 75, 39, 0.04);
+}
+
+.semi-button-track:hover::before,
+.semi-button-track:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.semi-button-track .track-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.semi-button-track:hover .track-arrow,
+.semi-button-track:focus-visible .track-arrow {
+  transform: translate(3px, -3px);
+  color: var(--signal);
+}
+
+.semi-button-track-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C2C4BC;
+  border: 1px solid rgba(246, 244, 238, 0.18);
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.semi-button-track-dark::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.semi-button-track-dark:hover,
+.semi-button-track-dark:focus-visible {
+  border-color: rgba(246, 244, 238, 0.45);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.semi-button-track-dark:hover::before,
+.semi-button-track-dark:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.semi-button-track-dark .track-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.semi-button-track-dark:hover .track-arrow,
+.semi-button-track-dark:focus-visible .track-arrow {
+  transform: translateX(4px);
+  color: var(--signal);
+}
+
+/* Subtle corner registration marks for architectural magazine look */
+.corner-cross {
+  position: relative;
+}
+.corner-cross::before, .corner-cross::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--signal);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.corner-cross::before {
+  top: 4px;
+  left: 4px;
+}
+.corner-cross::after {
+  bottom: 4px;
+  right: 4px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--signal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
