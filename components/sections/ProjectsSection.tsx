@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 
 export function ProjectsSection() {
   const projects = [
@@ -15,10 +16,11 @@ export function ProjectsSection() {
   const headInView = useInView(headRef, { once: true, margin: '-60px' })
 
   return (
-    <section id="projects" className="py-24 md:py-32 border-b border-[#D6D3C8]">
+    <section id="projects" className="py-24 md:py-36 border-b border-[#D6D3C8] bg-[#F6F4EE]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
-        <div className="max-w-3xl mb-16" ref={headRef}>
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16 md:mb-24" ref={headRef}>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}
@@ -31,7 +33,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight text-[#111210] leading-[1.05] mb-4"
+            className="text-[clamp(2.4rem,5.5vw,5rem)] font-extrabold tracking-tight text-[#111210] leading-[1.02] mb-6"
           >
             Something to open, run and explain.
           </motion.h2>
@@ -39,13 +41,14 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.16 }}
-            className="text-base sm:text-lg text-[#6B6C65] font-normal leading-relaxed"
+            className="text-base sm:text-lg text-[#6B6C65] font-normal leading-relaxed max-w-xl"
           >
             A certificate records that you attended. A project records what you can do — and lets you walk someone through it line by line. You get both.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {/* Engineering Blueprint Project Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
@@ -53,29 +56,37 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group p-7 sm:p-9 border border-[#D6D3C8] hover:border-[#111210] hover:bg-[#ECE8DD]/50 transition-all duration-300 rounded-2xl cursor-default"
+              className="group p-8 sm:p-10 border border-[#D6D3C8] bg-[#FAF8F3] hover:border-[#111210] hover:bg-white transition-all duration-300 rounded-3xl cursor-default flex flex-col justify-between shadow-sm hover:shadow-xl"
             >
-              <div className="flex items-start justify-between mb-4">
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#ECE8DD] font-mono text-[10px] font-bold text-[#E44B27] uppercase tracking-widest border border-[#D6D3C8]">
-                  {p.badge}
-                </span>
-                <span className="font-mono text-xs font-bold text-[#D6D3C8] group-hover:text-[#E44B27] transition-colors">
-                  0{i + 1}
-                </span>
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#ECE8DD] font-mono text-[10px] font-bold text-[#E44B27] uppercase tracking-widest border border-[#D6D3C8]">
+                    {p.badge}
+                  </span>
+                  <span className="font-mono text-sm font-bold text-[#6B6C65] group-hover:text-[#111210] transition-colors">
+                    [0{i + 1}]
+                  </span>
+                </div>
+
+                <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#111210] tracking-tight mb-4 group-hover:text-[#E44B27] transition-colors">
+                  {p.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#6B6C65] leading-relaxed font-normal mb-8">
+                  {p.desc}
+                </p>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111210] tracking-tight mb-3 group-hover:text-[#E44B27] transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-sm text-[#6B6C65] leading-relaxed font-normal">
-                {p.desc}
-              </p>
-              <div className="mt-6 pt-4 border-t border-[#D6D3C8] flex items-center justify-between">
-                <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-wider">Project Spec</span>
-                <span className="font-mono text-[10px] text-[#E44B27] uppercase tracking-wider font-bold group-hover:translate-x-1 transition-transform inline-block">→</span>
+
+              <div className="pt-6 border-t border-[#D6D3C8] flex items-center justify-between font-mono text-[11px] text-[#6B6C65] uppercase tracking-wider">
+                <span>Production Deliverable</span>
+                <span className="w-8 h-8 rounded-full border border-[#D6D3C8] group-hover:border-[#E44B27] group-hover:bg-[#E44B27] group-hover:text-white flex items-center justify-center transition-all">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )

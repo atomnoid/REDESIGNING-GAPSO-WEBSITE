@@ -13,35 +13,40 @@ export function TheGapSection() {
     { no: '06', title: 'Practice is treated as a bonus, not the point.', desc: 'When you spend more time reading slides than writing code, you leave with slides.' },
   ]
 
-  const headRef = useRef(null)
-  const headInView = useInView(headRef, { once: true, margin: '-60px' })
-  const gridRef = useRef(null)
-  const gridInView = useInView(gridRef, { once: true, margin: '-60px' })
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true, margin: '-60px' })
 
   return (
-    <section className="py-24 md:py-32 bg-[#111210] text-[#F6F4EE] border-b border-[#252724] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section 
+      ref={containerRef}
+      className="py-24 md:py-36 bg-[#111210] text-[#F6F4EE] border-b border-[#252724] relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
-        <div className="max-w-3xl mb-16" ref={headRef}>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={headInView ? { opacity: 1, y: 0 } : {}}
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="label mb-5"
+            className="flex items-center gap-2 mb-6"
           >
-            The Gap
-          </motion.p>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E44B27]" />
+            <span className="label">The Gap</span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={headInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold tracking-tight text-white leading-[1.05] mb-6"
+            className="text-[clamp(2.4rem,5.5vw,5rem)] font-extrabold tracking-[-0.03em] text-white leading-[1.02] mb-6"
           >
             Watching tutorials isn&apos;t the same as building.
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 16 }}
-            animate={headInView ? { opacity: 1, y: 0 } : {}}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.16 }}
             className="text-base sm:text-lg text-[rgba(246,244,238,0.55)] font-normal leading-relaxed"
           >
@@ -49,46 +54,53 @@ export function TheGapSection() {
           </motion.p>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-[#252724] mb-20">
+        {/* Asymmetrical Matrix Breakdown */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 md:mb-24">
           {gaps.map((g, i) => (
             <motion.div
               key={g.no}
-              initial={{ opacity: 0, y: 16 }}
-              animate={gridInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className={`group p-8 border-b border-[#252724] hover:bg-[#181A18] transition-colors cursor-default ${
-                i % 2 === 0 ? 'md:border-r md:border-[#252724]' : ''
-              }`}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+              className="p-8 rounded-3xl bg-[#171816] border border-[#252724] hover:border-[#E44B27]/40 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="flex items-baseline gap-3 mb-3">
-                <span className="font-mono text-xs font-bold text-[#E44B27] shrink-0">{g.no}</span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#E44B27] transition-colors leading-tight">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-mono text-xs font-bold text-[#E44B27] px-2.5 py-1 rounded-full bg-[#E44B27]/10 border border-[#E44B27]/20">
+                    {g.no}
+                  </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#252724] group-hover:bg-[#E44B27] transition-colors" />
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-3 tracking-tight group-hover:text-[#E44B27] transition-colors leading-snug">
                   {g.title}
                 </h3>
               </div>
-              <p className="text-sm text-[rgba(246,244,238,0.5)] leading-relaxed pl-7 font-normal">
+
+              <p className="text-sm text-[rgba(246,244,238,0.55)] leading-relaxed font-normal pt-4 border-t border-[#252724]">
                 {g.desc}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom statement */}
+        {/* Monumental Kinetic Banner */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="pt-10 border-t border-[#252724] flex flex-col sm:flex-row sm:items-baseline justify-between gap-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-[#171816] via-[#1b1d1a] to-[#171816] border border-[#2e312b] flex flex-col lg:flex-row lg:items-center justify-between gap-8"
         >
-          <p className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <p className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1] max-w-2xl">
             Understand the system.{' '}
-            <span className="text-[#E44B27]">Then build the system.</span>
+            <span className="text-[#E44B27] italic font-serif font-normal">Then build the system.</span>
           </p>
-          <span className="font-mono text-xs text-[rgba(246,244,238,0.3)] tracking-widest uppercase shrink-0">
+
+          <span className="font-mono text-xs text-[rgba(246,244,238,0.4)] tracking-[0.2em] uppercase font-bold px-4 py-2 rounded-full border border-[#2e312b] bg-[#121312] shrink-0 self-start lg:self-center">
             GAPSO Pedagogy
           </span>
         </motion.div>
+
       </div>
     </section>
   )

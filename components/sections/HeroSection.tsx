@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { ArrowUpRight, ArrowRight } from 'lucide-react'
+import React, { useRef, useState } from 'react'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { ArrowUpRight, ArrowRight, CornerDownRight, Sparkles } from 'lucide-react'
 
 interface HeroSectionProps {
   applyHref: string
@@ -18,157 +18,180 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
     { no: '04', title: 'Engineer', desc: 'Design, connect and run AI systems that hold up in production.' },
   ]
 
+  const containerRef = useRef(null)
   const headingRef = useRef(null)
-  const headingInView = useInView(headingRef, { once: true, margin: '-80px' })
-  const panelRef = useRef(null)
-  const panelInView = useInView(panelRef, { once: true, margin: '-60px' })
+  const headingInView = useInView(headingRef, { once: true, margin: '-40px' })
+  const [activeStage, setActiveStage] = useState(0)
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* ── Giant headline ── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 mb-8"
-        >
-          <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />
-          <span className="label">Fundamentals to Production AI</span>
-        </motion.div>
+    <section 
+      ref={containerRef}
+      id="top" 
+      className="relative min-h-[92vh] flex flex-col justify-between pt-16 md:pt-24 pb-12 overflow-hidden bg-[#F6F4EE]"
+    >
+      {/* Editorial Watermark / Spatial Grid Line */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D6D3C8] to-transparent" />
+      <div className="absolute top-0 right-[22%] w-px h-full bg-[#D6D3C8]/40 hidden lg:block pointer-events-none" />
 
-        <h1
-          ref={headingRef}
-          aria-label="Don't just learn AI. Learn to build with it."
-          className="text-[clamp(3rem,8vw,7.5rem)] font-extrabold tracking-tight leading-[0.95] text-[#111210] mb-10 overflow-hidden"
-        >
-          {WORDS.map((word, i) => (
-            <span
-              key={i}
-              style={{ display: 'inline-block', overflow: 'hidden', marginRight: i < WORDS.length - 1 ? '0.22em' : 0 }}
-            >
-              <motion.span
-                aria-hidden="true"
-                style={{ display: 'inline-block' }}
-                initial={{ y: '100%' }}
-                animate={headingInView ? { y: 0 } : { y: '100%' }}
-                transition={{
-                  duration: 0.65,
-                  delay: i * 0.055,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                {/* "build" gets accent colour */}
-                {word === 'build' ? (
-                  <span className="text-[#E44B27]">{word}</span>
-                ) : word}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
-
-        {/* Sub + CTAs row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={headingInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="text-lg md:text-xl text-[#6B6C65] max-w-lg leading-relaxed font-normal"
-          >
-            GAPSO School of AI trains students and professionals to understand,
-            build and ship real AI systems — from first principles to production.
-          </motion.p>
-
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+        
+        {/* Top Meta Lineage */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 pb-12 border-b border-[#D6D3C8]">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={headingInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="flex flex-wrap items-center gap-4 shrink-0"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3"
           >
-            <a href={applyHref} className="btn">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E44B27] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E44B27]" />
+            </span>
+            <span className="font-mono text-xs font-bold text-[#111210] uppercase tracking-[0.2em]">
+              Fundamentals to Production AI
+            </span>
+          </motion.div>
+
+          <div className="flex items-center gap-6 font-mono text-[11px] text-[#6B6C65] tracking-widest uppercase">
+            <span>Bengaluru · Live &amp; Online</span>
+            <span className="w-1 h-1 rounded-full bg-[#D6D3C8]" />
+            <span className="text-[#111210] font-semibold">2026 Cohorts</span>
+          </div>
+        </div>
+
+        {/* Cinematic Headline Installation */}
+        <div className="pt-12 md:pt-16 pb-14">
+          <h1
+            ref={headingRef}
+            aria-label="Don't just learn AI. Learn to build with it."
+            className="text-[clamp(3.4rem,8.8vw,8.4rem)] font-extrabold tracking-[-0.04em] leading-[0.92] text-[#111210] select-none"
+          >
+            {WORDS.map((word, i) => (
+              <span
+                key={i}
+                className="inline-block overflow-hidden mr-[0.2em] last:mr-0 align-top"
+              >
+                <motion.span
+                  aria-hidden="true"
+                  className={`inline-block ${
+                    word === 'build' 
+                      ? 'text-[#E44B27] italic font-serif font-normal pr-1' 
+                      : ''
+                  }`}
+                  initial={{ y: '110%', rotate: 2 }}
+                  animate={headingInView ? { y: 0, rotate: 0 } : { y: '110%', rotate: 2 }}
+                  transition={{
+                    duration: 0.75,
+                    delay: 0.05 + i * 0.05,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
+        </div>
+
+        {/* Narrative Split & Action Terminal */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end pb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.65, delay: 0.45 }}
+            className="lg:col-span-7"
+          >
+            <p className="text-xl sm:text-2xl text-[#6B6C65] max-w-xl font-normal leading-[1.4] tracking-tight">
+              GAPSO School of AI trains students and professionals to understand,
+              build and ship real AI systems — from first principles to production.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.65, delay: 0.55 }}
+            className="lg:col-span-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:justify-end"
+          >
+            <a href={applyHref} className="btn py-4 px-8 justify-center shadow-lg hover:shadow-xl hover:shadow-[#E44B27]/15">
               <span>Apply Now</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
-            <a href="#programs" className="link">
+            <a href="#programs" className="link py-3.5 px-6 justify-center rounded-full border border-[#D6D3C8] hover:border-[#111210] transition-colors">
               <span>Explore Programs</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </motion.div>
         </div>
 
-        {/* ── Featured pathway panel (Humaan showreel-style) ── */}
+        {/* ── Architectural 4-Stage Pathway Dock (Studio Artifact) ── */}
         <motion.div
-          ref={panelRef}
-          initial={{ opacity: 0, y: 32, scale: 0.985 }}
-          animate={panelInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full border border-[#D6D3C8] bg-[#ECE8DD] overflow-hidden"
-          style={{ borderRadius: 20 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="relative rounded-3xl border border-[#D6D3C8] bg-[#ECE8DD] overflow-hidden shadow-sm"
         >
-          {/* Top bar */}
-          <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-[#D6D3C8]">
-            <span className="font-mono text-[11px] font-bold tracking-[0.18em] text-[#111210] uppercase">
-              The Learning Pathway
-            </span>
-            <span className="font-mono text-[11px] text-[#E44B27] tracking-[0.18em] uppercase font-bold">
+          {/* Header of Dock */}
+          <div className="flex items-center justify-between px-6 sm:px-8 py-4 border-b border-[#D6D3C8] bg-[#ECE8DD]/80">
+            <div className="flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#E44B27]" />
+              <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-[#111210] uppercase">
+                The Learning Pathway
+              </span>
+            </div>
+            <span className="font-mono text-[10px] text-[#E44B27] font-bold tracking-widest uppercase px-3 py-1 bg-white/60 rounded-full border border-[#D6D3C8]">
               4 Stages
             </span>
           </div>
 
-          {/* Stages grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y divide-[#D6D3C8] md:divide-y-0">
-            {pathwayStages.map((stage, idx) => (
-              <motion.div
-                key={stage.no}
-                initial={{ opacity: 0, y: 10 }}
-                animate={panelInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + idx * 0.08 }}
-                className="px-6 sm:px-8 py-7 group hover:bg-[#E8E4D8] transition-colors"
-              >
-                <span className="font-mono text-[10px] font-bold text-[#E44B27] tracking-widest block mb-3">
-                  {stage.no}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#111210] tracking-tight mb-2 group-hover:text-[#E44B27] transition-colors">
-                  {stage.title}
-                </h3>
-                <p className="text-xs sm:text-[13px] text-[#6B6C65] leading-relaxed font-normal">
-                  {stage.desc}
-                </p>
-              </motion.div>
-            ))}
+          {/* Interactive Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#D6D3C8]">
+            {pathwayStages.map((stage, idx) => {
+              const isHovered = activeStage === idx
+              return (
+                <div
+                  key={stage.no}
+                  onMouseEnter={() => setActiveStage(idx)}
+                  className={`p-6 sm:p-8 transition-all duration-300 relative cursor-default ${
+                    isHovered ? 'bg-[#FAF8F3]' : 'hover:bg-[#E7E3D6]'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs font-bold text-[#E44B27]">
+                      {stage.no}
+                    </span>
+                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                      isHovered ? 'bg-[#E44B27]' : 'bg-[#D6D3C8]'
+                    }`} />
+                  </div>
+
+                  <h3 className="text-2xl font-serif font-bold text-[#111210] mb-2 tracking-tight">
+                    {stage.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-[13px] text-[#6B6C65] leading-relaxed font-normal">
+                    {stage.desc}
+                  </p>
+                </div>
+              )
+            })}
           </div>
 
-          {/* Bottom meta bar */}
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 px-6 sm:px-10 py-4 border-t border-[#D6D3C8]">
-            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
-              Bengaluru, India
-            </span>
-            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
-            <span className="font-mono text-[10px] text-[#111210] font-bold uppercase tracking-widest">
-              Live In-Person &amp; Online
-            </span>
-            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
-            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
-              Weekend Batches
-            </span>
-            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
-            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
-              Project-Driven
-            </span>
+          {/* Bottom Dock Ledger */}
+          <div className="flex flex-wrap items-center justify-between gap-4 px-6 sm:px-8 py-3.5 border-t border-[#D6D3C8] bg-[#E7E3D6]/70 text-[10px] font-mono tracking-wider uppercase text-[#6B6C65]">
+            <div className="flex items-center gap-6">
+              <span>Bengaluru, India</span>
+              <span className="w-1 h-1 rounded-full bg-[#D6D3C8]" />
+              <span className="text-[#111210] font-bold">Live In-Person &amp; Online</span>
+            </div>
+            <div className="flex items-center gap-6">
+              <span>Weekend Batches</span>
+              <span className="w-1 h-1 rounded-full bg-[#D6D3C8]" />
+              <span>Project-Driven</span>
+            </div>
           </div>
         </motion.div>
-      </div>
 
-      {/* Meta pill strip */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
-        <div className="flex flex-wrap gap-3">
-          {['50% Theory / 50% Practical', 'Weekend Batches', 'Project-Driven', 'Bengaluru · Live & Online'].map((pill) => (
-            <span key={pill} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D6D3C8] font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest bg-[#F6F4EE] hover:border-[#111210] hover:text-[#111210] transition-colors cursor-default">
-              {pill.includes('50%') && <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />}
-              {pill}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   )
