@@ -1,7 +1,6 @@
-﻿'use client'
+'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export function PrinciplesTicker() {
   const principles = [
@@ -10,33 +9,38 @@ export function PrinciplesTicker() {
     'SMALL BATCHES',
     'WEEKEND LEARNING',
     'PORTFOLIO OVER CERTIFICATES',
+    'FIRST PRINCIPLES',
+    'LIVE SESSIONS ONLY',
+    'BENGALURU · INDIA',
   ]
 
-  // Double the list for infinite seamless marquee
-  const tickerItems = [...principles, ...principles, ...principles]
+  const items = [...principles, ...principles]
 
   return (
     <section
       aria-label="How GAPSO teaches"
-      className="relative overflow-hidden py-3 border-b border-[#D6D3C8]"
+      className="relative overflow-hidden py-4 border-y border-[#D6D3C8] bg-[#F6F4EE]"
     >
-      <div className="flex w-max">
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ repeat: Infinity, repeatType: 'loop', duration: 32, ease: 'linear' }}
-          className="flex items-center gap-10 whitespace-nowrap"
-        >
-          {tickerItems.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-10">
-              <span className={`font-mono text-[10px] tracking-[0.16em] font-medium uppercase ${item.includes('50%') ? 'text-[#E44B27]' : 'text-[#6B6C65]'}`}>
-                {item}
-              </span>
-              <span className="w-[3px] h-[3px] bg-[#D6D3C8] inline-block" />
-            </div>
-          ))}
-        </motion.div>
+      {/* Fade edges */}
+      <div className="absolute inset-y-0 left-0 w-20 z-10 pointer-events-none"
+           style={{ background: 'linear-gradient(to right, #F6F4EE, transparent)' }} />
+      <div className="absolute inset-y-0 right-0 w-20 z-10 pointer-events-none"
+           style={{ background: 'linear-gradient(to left, #F6F4EE, transparent)' }} />
+
+      <div className="flex w-max animate-marquee">
+        {items.map((item, idx) => (
+          <div key={idx} className="flex items-center gap-12 pl-12">
+            <span
+              className={`font-mono text-[11px] tracking-[0.2em] font-semibold uppercase whitespace-nowrap ${
+                item.includes('50%') ? 'text-[#E44B27]' : 'text-[#6B6C65]'
+              }`}
+            >
+              {item}
+            </span>
+            <span className="w-[4px] h-[4px] rounded-full bg-[#D6D3C8] shrink-0" />
+          </div>
+        ))}
       </div>
     </section>
   )
 }
-

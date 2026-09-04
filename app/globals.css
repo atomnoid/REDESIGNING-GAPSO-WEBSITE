@@ -14,16 +14,16 @@
 }
 
 :root {
-  --paper:     #F6F4EE;
+  --paper:      #F6F4EE;
   --paper-card: #ECE8DD;
-  --ink:       #111210;
-  --muted:     #6B6C65;
-  --line:      #D6D3C8;
-  --line-dark: #252724;
-  --signal:    #E44B27;
-  --signal-h:  #CC3D1A;
-  --dark:      #111210;
-  --dark-mid:  #191B19;
+  --ink:        #111210;
+  --muted:      #6B6C65;
+  --line:       #D6D3C8;
+  --line-dark:  #252724;
+  --signal:     #E44B27;
+  --signal-h:   #CC3D1A;
+  --dark:       #111210;
+  --dark-mid:   #191B19;
 }
 
 * { box-sizing: border-box; }
@@ -59,7 +59,7 @@ button {
   cursor: pointer;
 }
 
-/* Eyebrow label */
+/* ─── Eyebrow label ─── */
 .label {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -69,7 +69,7 @@ button {
   color: var(--signal);
 }
 
-/* Primary Button */
+/* ─── Primary Pill Button ─── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -82,16 +82,20 @@ button {
   text-transform: uppercase;
   background: var(--signal);
   color: #fff;
-  transition: background 0.15s ease, transform 0.15s ease;
+  border-radius: 100px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(228, 75, 39, 0.25);
 }
-.btn:hover { 
-  background: var(--signal-h); 
+.btn:hover {
+  background: var(--signal-h);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(228, 75, 39, 0.35);
 }
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(0px);
 }
 
-/* Secondary Button */
+/* ─── Ghost Pill Button ─── */
 .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -99,20 +103,21 @@ button {
   padding: 11px 22px;
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: transparent;
   color: var(--ink);
-  border: 1px solid var(--line);
-  transition: all 0.2s ease;
+  border: 1.5px solid var(--line);
+  border-radius: 100px;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 .btn-outline:hover {
   border-color: var(--ink);
-  background: rgba(17, 18, 16, 0.03);
+  color: var(--ink);
 }
 
-/* Ghost text link */
+/* ─── Text link ─── */
 .link {
   display: inline-flex;
   align-items: center;
@@ -123,15 +128,14 @@ button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
-  border-bottom: 1.5px solid currentColor;
-  padding-bottom: 2px;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease, gap 0.2s ease;
 }
-.link:hover { 
-  color: var(--signal); 
-  gap: 9px;
+.link:hover {
+  color: var(--signal);
+  gap: 10px;
 }
 
+/* ─── Text link (dark bg) ─── */
 .link-dark {
   display: inline-flex;
   align-items: center;
@@ -141,13 +145,47 @@ button {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #C8C5BA;
-  border-bottom: 1.5px solid #C8C5BA;
-  padding-bottom: 2px;
-  transition: all 0.2s ease;
+  color: rgba(246, 244, 238, 0.6);
+  transition: color 0.15s ease, gap 0.2s ease;
 }
-.link-dark:hover { 
-  color: #fff; 
-  border-bottom-color: #fff; 
-  gap: 9px;
+.link-dark:hover {
+  color: #fff;
+  gap: 10px;
+}
+
+/* ─── Fade-up animation ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Marquee ─── */
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+/* ─── Clip reveal ─── */
+@keyframes clipReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+.animate-clip-reveal {
+  animation: clipReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Number counter shimmer ─── */
+.stat-shimmer {
+  background: linear-gradient(90deg, var(--ink) 0%, var(--signal) 50%, var(--ink) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

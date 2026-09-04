@@ -1,9 +1,14 @@
-import React from 'react'
+'use client'
+
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 
 interface HeroSectionProps {
   applyHref: string
 }
+
+const WORDS = ["Don't", "just", "learn", "AI.", "Learn", "to", "build", "with", "it."]
 
 export function HeroSection({ applyHref }: HeroSectionProps) {
   const pathwayStages = [
@@ -13,99 +18,156 @@ export function HeroSection({ applyHref }: HeroSectionProps) {
     { no: '04', title: 'Engineer', desc: 'Design, connect and run AI systems that hold up in production.' },
   ]
 
+  const headingRef = useRef(null)
+  const headingInView = useInView(headingRef, { once: true, margin: '-80px' })
+  const panelRef = useRef(null)
+  const panelInView = useInView(panelRef, { once: true, margin: '-60px' })
+
   return (
-    <section id="top" className="relative pt-16 md:pt-24 pb-20 md:pb-28 border-b border-[#D6D3C8]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Bold, simple, human editorial typography */}
-          <div className="lg:col-span-7">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-1.5 h-1.5 bg-[#E44B27]" />
-              <span className="label">
-                Fundamentals to Production AI
-              </span>
-            </div>
+    <section id="top" className="relative overflow-hidden">
+      {/* ── Giant headline ── */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-2 mb-8"
+        >
+          <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />
+          <span className="label">Fundamentals to Production AI</span>
+        </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#111210] leading-[1.04] mb-6">
-              Don&apos;t just learn AI.{' '}
-              <span className="text-[#E44B27] block sm:inline">
-                Learn to build
-              </span>{' '}
-              with it.
-            </h1>
+        <h1
+          ref={headingRef}
+          aria-label="Don't just learn AI. Learn to build with it."
+          className="text-[clamp(3rem,8vw,7.5rem)] font-extrabold tracking-tight leading-[0.95] text-[#111210] mb-10 overflow-hidden"
+        >
+          {WORDS.map((word, i) => (
+            <span
+              key={i}
+              style={{ display: 'inline-block', overflow: 'hidden', marginRight: i < WORDS.length - 1 ? '0.22em' : 0 }}
+            >
+              <motion.span
+                aria-hidden="true"
+                style={{ display: 'inline-block' }}
+                initial={{ y: '100%' }}
+                animate={headingInView ? { y: 0 } : { y: '100%' }}
+                transition={{
+                  duration: 0.65,
+                  delay: i * 0.055,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                {/* "build" gets accent colour */}
+                {word === 'build' ? (
+                  <span className="text-[#E44B27]">{word}</span>
+                ) : word}
+              </motion.span>
+            </span>
+          ))}
+        </h1>
 
-            <p className="text-lg md:text-xl text-[#6B6C65] max-w-xl leading-relaxed mb-10 font-normal">
-              GAPSO School of AI trains students and professionals to understand,
-              build and ship real AI systems — from first principles to production.
-            </p>
+        {/* Sub + CTAs row */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-16">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="text-lg md:text-xl text-[#6B6C65] max-w-lg leading-relaxed font-normal"
+          >
+            GAPSO School of AI trains students and professionals to understand,
+            build and ship real AI systems — from first principles to production.
+          </motion.p>
 
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              <a href={applyHref} className="btn">
-                <span>Apply Now</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a href="#programs" className="link">
-                <span>Explore Programs</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Clean, calm editorial pathway card */}
-          <div className="lg:col-span-5 bg-[#ECE8DD] border border-[#D6D3C8] p-7 sm:p-8">
-            <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#D6D3C8]">
-              <span className="font-mono text-[10px] font-bold tracking-widest text-[#111210] uppercase">
-                THE LEARNING PATHWAY
-              </span>
-              <span className="font-mono text-[10px] text-[#E44B27] tracking-widest uppercase font-semibold">
-                4 STAGES
-              </span>
-            </div>
-
-            <div className="space-y-4 divide-y divide-[#D6D3C8]">
-              {pathwayStages.map((stage, idx) => (
-                <div key={stage.no} className={idx === 0 ? '' : 'pt-4'}>
-                  <div className="flex items-baseline justify-between mb-1">
-                    <span className="font-bold text-lg text-[#111210] tracking-tight">
-                      {stage.title}
-                    </span>
-                    <span className="font-mono text-[11px] text-[#6B6C65]">
-                      {stage.no}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-[#6B6C65] leading-relaxed font-normal">
-                    {stage.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-[#D6D3C8] flex items-center justify-between font-mono text-[10px] text-[#6B6C65] uppercase tracking-wider">
-              <span>BENGALURU, INDIA</span>
-              <span className="text-[#111210] font-semibold">LIVE IN-PERSON &amp; ONLINE</span>
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="flex flex-wrap items-center gap-4 shrink-0"
+          >
+            <a href={applyHref} className="btn">
+              <span>Apply Now</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <a href="#programs" className="link">
+              <span>Explore Programs</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </motion.div>
         </div>
 
-        {/* Human Creative Meta Strip */}
-        <div className="mt-16 pt-8 border-t border-[#D6D3C8] grid grid-cols-2 md:grid-cols-4 gap-6 text-[#6B6C65] font-mono text-[11px] tracking-widest uppercase">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />
-            <span>50% Theory / 50% Practical</span>
+        {/* ── Featured pathway panel (Humaan showreel-style) ── */}
+        <motion.div
+          ref={panelRef}
+          initial={{ opacity: 0, y: 32, scale: 0.985 }}
+          animate={panelInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full border border-[#D6D3C8] bg-[#ECE8DD] overflow-hidden"
+          style={{ borderRadius: 20 }}
+        >
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-[#D6D3C8]">
+            <span className="font-mono text-[11px] font-bold tracking-[0.18em] text-[#111210] uppercase">
+              The Learning Pathway
+            </span>
+            <span className="font-mono text-[11px] text-[#E44B27] tracking-[0.18em] uppercase font-bold">
+              4 Stages
+            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#111210] rounded-full" />
-            <span>Weekend Batches</span>
+
+          {/* Stages grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y divide-[#D6D3C8] md:divide-y-0">
+            {pathwayStages.map((stage, idx) => (
+              <motion.div
+                key={stage.no}
+                initial={{ opacity: 0, y: 10 }}
+                animate={panelInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + idx * 0.08 }}
+                className="px-6 sm:px-8 py-7 group hover:bg-[#E8E4D8] transition-colors"
+              >
+                <span className="font-mono text-[10px] font-bold text-[#E44B27] tracking-widest block mb-3">
+                  {stage.no}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#111210] tracking-tight mb-2 group-hover:text-[#E44B27] transition-colors">
+                  {stage.title}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-[#6B6C65] leading-relaxed font-normal">
+                  {stage.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />
-            <span>Project-Driven</span>
+
+          {/* Bottom meta bar */}
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 px-6 sm:px-10 py-4 border-t border-[#D6D3C8]">
+            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
+              Bengaluru, India
+            </span>
+            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
+            <span className="font-mono text-[10px] text-[#111210] font-bold uppercase tracking-widest">
+              Live In-Person &amp; Online
+            </span>
+            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
+            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
+              Weekend Batches
+            </span>
+            <span className="w-1 h-1 bg-[#D6D3C8] rounded-full hidden sm:block" />
+            <span className="font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest">
+              Project-Driven
+            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-[#111210] rounded-full" />
-            <span>Bengaluru · Live &amp; Online</span>
-          </div>
+        </motion.div>
+      </div>
+
+      {/* Meta pill strip */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
+        <div className="flex flex-wrap gap-3">
+          {['50% Theory / 50% Practical', 'Weekend Batches', 'Project-Driven', 'Bengaluru · Live & Online'].map((pill) => (
+            <span key={pill} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D6D3C8] font-mono text-[10px] text-[#6B6C65] uppercase tracking-widest bg-[#F6F4EE] hover:border-[#111210] hover:text-[#111210] transition-colors cursor-default">
+              {pill.includes('50%') && <span className="w-1.5 h-1.5 bg-[#E44B27] rounded-full" />}
+              {pill}
+            </span>
+          ))}
         </div>
       </div>
     </section>
